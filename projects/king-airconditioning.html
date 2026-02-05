@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>King Airconditioning | Project | Kerim Örgü</title>
+  <meta name="description" content="King Airconditioning: Een professionele zakelijke website voor airconditioning services.">
+  <meta name="author" content="Kerim Örgü">
+  <link rel="canonical" href="https://www.mkerrie.com/projects/king-airconditioning.html">
+
+  <meta property="og:title" content="King Airconditioning | Kerim Örgü">
+  <meta property="og:description" content="Een professionele zakelijke website voor airconditioning services.">
+  <meta property="og:image" content="https://www.mkerrie.com/assets/images/king-hero.webp">
+
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" type="image/webp" href="../assets/images/MKLogo-removebg-preview.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+
+  <style>
+    .device-frame { background: linear-gradient(145deg, #1a1a2e, #16213e); }
+    .browser-dots span { width: 12px; height: 12px; border-radius: 50%; }
+    .phone-notch { width: 120px; height: 25px; background: #000; border-radius: 0 0 15px 15px; }
+    .gallery-item { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-lg shadow-sm">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <a href="../index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md p-1">
+            <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-lg font-bold text-gray-800 hidden sm:block">Kerim Örgü</span>
+        </a>
+        <a href="../index.html#projects" class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors text-sm font-medium">
+          <i class="bi bi-arrow-left"></i>
+          <span>Alle projecten</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-12 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+            <i class="bi bi-briefcase-fill mr-1"></i> Business
+          </span>
+          <span class="px-4 py-1.5 bg-white/10 rounded-full text-sm">Airconditioning Services</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">King Airconditioning</h1>
+        <p class="text-xl text-white/80 mb-8 max-w-2xl">Een professionele zakelijke website voor airconditioning installatie en onderhoud services.</p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-orange-400/20 border border-orange-400/30 rounded-lg text-sm font-medium">HTML5</span>
+          <span class="px-4 py-2 bg-cyan-400/20 border border-cyan-400/30 rounded-lg text-sm font-medium">Tailwind CSS</span>
+          <span class="px-4 py-2 bg-yellow-400/20 border border-yellow-400/30 rounded-lg text-sm font-medium">JavaScript</span>
+        </div>
+
+        <a href="https://kingairconditioning.nl/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-700 font-semibold rounded-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-lg">
+          <span>Bekijk Live Website</span>
+          <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Device Mockups -->
+  <section class="py-16 bg-gradient-to-b from-gray-100 to-white -mt-8 relative z-10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+
+          <!-- Desktop Mockup -->
+          <div class="device-frame rounded-2xl p-3 shadow-2xl max-w-3xl w-full">
+            <div class="bg-gray-800 rounded-t-lg px-4 py-2 flex items-center gap-2">
+              <div class="browser-dots flex gap-2">
+                <span class="bg-red-500"></span>
+                <span class="bg-yellow-500"></span>
+                <span class="bg-green-500"></span>
+              </div>
+              <div class="flex-1 mx-4">
+                <div class="bg-gray-700 rounded-md px-3 py-1 text-xs text-gray-400 truncate">kingairconditioning.nl</div>
+              </div>
+            </div>
+            <div class="rounded-b-lg overflow-hidden">
+              <img src="../assets/images/king-hero.webp" alt="King Airconditioning Desktop" class="w-full">
+            </div>
+          </div>
+
+          <!-- Mobile Mockup -->
+          <div class="device-frame rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl w-[140px] sm:w-[220px] flex-shrink-0">
+            <div class="bg-black rounded-[2.5rem] p-2 relative">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 phone-notch"></div>
+              <div class="rounded-[2rem] overflow-hidden">
+                <img src="../assets/images/king-mobile.webp" alt="King Airconditioning Mobile" class="w-full">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Info -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-12">
+
+          <!-- Description -->
+          <div class="lg:col-span-2 space-y-8">
+            <div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">Over dit project</h2>
+              <div class="prose prose-lg text-gray-600">
+                <p>King Airconditioning is een professionele website voor een airconditioning installatie- en onderhoudsbedrijf. De website is ontworpen om vertrouwen te wekken bij potentiële klanten en hen te informeren over de aangeboden services.</p>
+                <p>Met een clean design en duidelijke call-to-actions is de website geoptimaliseerd voor conversie. Bezoekers kunnen eenvoudig contact opnemen of een offerte aanvragen.</p>
+              </div>
+            </div>
+
+            <!-- Features -->
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">Features</h3>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="bi bi-list-check text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Service Presentatie</h4>
+                    <p class="text-sm text-gray-600">Heldere weergave van alle diensten</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="bi bi-envelope text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Offerte Aanvraag</h4>
+                    <p class="text-sm text-gray-600">Eenvoudig contact formulier</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="bi bi-shield-check text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Trust Indicators</h4>
+                    <p class="text-sm text-gray-600">Reviews en certificeringen</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="bi bi-phone text-xl text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Responsive Design</h4>
+                    <p class="text-sm text-gray-600">Perfect op elk apparaat</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="space-y-6">
+            <div class="bg-gray-50 rounded-2xl p-6">
+              <h3 class="font-bold text-gray-900 mb-4">Project Details</h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm text-gray-500 mb-1">Type</dt>
+                  <dd class="font-medium text-gray-900">Business Website</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-500 mb-1">Klant</dt>
+                  <dd class="font-medium text-gray-900">King Airconditioning</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-500 mb-1">Categorie</dt>
+                  <dd class="font-medium text-gray-900">Dienstverlening</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-6 text-white">
+              <h3 class="font-bold mb-3">Interesse in zo'n project?</h3>
+              <p class="text-blue-100 text-sm mb-4">Laten we samenwerken aan jouw volgende website.</p>
+              <a href="../index.html#contact" class="block w-full py-3 bg-white text-blue-700 text-center font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+                Neem contact op
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Page Screenshot -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Volledige Website Preview</h2>
+        <div class="gallery-item bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="bg-gray-800 px-4 py-2 flex items-center gap-2">
+            <div class="flex gap-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+          </div>
+          <div class="max-h-[600px] overflow-y-auto">
+            <img src="../assets/images/king-full.webp" alt="King Airconditioning Full Page" class="w-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Projects -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Meer Projecten</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="./freshgen.html" class="group">
+            <div class="gallery-item bg-gray-100 rounded-2xl overflow-hidden">
+              <div class="aspect-video overflow-hidden">
+                <img src="../assets/images/freshgen-hero.webp" alt="FreshGen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">FreshGen Kookplatform</h3>
+                <p class="text-sm text-gray-500">Web Applicatie</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="./ytech.html" class="group">
+            <div class="gallery-item bg-gray-100 rounded-2xl overflow-hidden">
+              <div class="aspect-video overflow-hidden">
+                <img src="../assets/images/ytech-hero.webp" alt="YTech" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">YTech Elektrotechniek</h3>
+                <p class="text-sm text-gray-500">Business Website</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="./piccobello-snacks.html" class="group">
+            <div class="gallery-item bg-gray-100 rounded-2xl overflow-hidden">
+              <div class="aspect-video overflow-hidden">
+                <img src="../assets/images/piccobello-hero.webp" alt="Piccobello Snacks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">Piccobello Snacks</h3>
+                <p class="text-sm text-gray-500">Business Website</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="h-14 mx-auto mb-4">
+      <p class="text-gray-400 mb-4">Kerim Örgü | Full-Stack Developer</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://www.linkedin.com/in/mkerrie/" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/SpicyKerrie" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.instagram.com/kerimorgu_/" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors">
+          <i class="bi bi-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

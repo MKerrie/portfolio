@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Waarom Tailwind CSS mijn go-to framework is | Kerim Örgü</title>
+  <meta name="description" content="Ontdek waarom ik van Bootstrap naar Tailwind CSS ben overgestapt en hoe utility-first CSS mijn development workflow heeft verbeterd.">
+  <meta name="keywords" content="Tailwind CSS, CSS Framework, Utility-First, Bootstrap, Webdevelopment, Frontend">
+  <meta name="author" content="Kerim Örgü">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mkerrie.com/blog/tailwind-css.html">
+  <meta property="og:title" content="Waarom Tailwind CSS mijn go-to framework is">
+  <meta property="og:description" content="Ontdek waarom ik van Bootstrap naar Tailwind CSS ben overgestapt.">
+  <meta property="article:published_time" content="2025-12-01">
+  <meta property="article:author" content="Kerim Örgü">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="../assets/images/MKLogo-removebg-preview.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    .mobile-nav {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+    .hamburger {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    .hamburger-line {
+      width: 24px;
+      height: 2px;
+      background-color: #374151;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-md" role="navigation" aria-label="Hoofd navigatie">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="../" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg p-1 border-2 border-primary-200">
+            <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors">Kerim Örgü</span>
+        </a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
+          <a href="./" class="text-primary-600 font-semibold">Blog</a>
+          <a href="../#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-5 py-2 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all font-medium">
+            Contact
+          </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="hamburger md:hidden rounded-lg hover:bg-gray-100 transition-colors" id="menuBtn" aria-label="Menu openen" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav fixed top-0 right-0 h-full w-80 bg-white shadow-2xl md:hidden" id="mobileNav" style="z-index: 9999;">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-gray-800">Menu</span>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" id="closeMenu" aria-label="Menu sluiten">
+          <i class="bi bi-x-lg text-xl"></i>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <a href="../" class="block px-4 py-3 bg-gray-50 rounded-xl text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-all">
+          <i class="bi bi-house-door mr-3"></i>Home
+        </a>
+        <a href="./" class="block px-4 py-3 bg-primary-50 rounded-xl text-primary-600 font-semibold">
+          <i class="bi bi-journal-text mr-3"></i>Blog
+        </a>
+        <a href="../#contact" class="block px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-700 text-white rounded-xl font-medium text-center mt-6">
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="fixed inset-0 bg-black/60 hidden md:hidden" id="mobileOverlay" style="z-index: 9998;"></div>
+
+  <!-- Article Header -->
+  <header class="pt-32 pb-16 bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="flex items-center justify-center gap-2 text-primary-200 mb-4">
+          <i class="bi bi-calendar3"></i>
+          <span>December 2025</span>
+          <span class="mx-2">•</span>
+          <span>5 min lezen</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6">
+          Waarom Tailwind CSS mijn go-to framework is
+        </h1>
+        <p class="text-xl text-gray-200">
+          Van Bootstrap-fan naar utility-first enthusiast: mijn reis en waarom jij ook de overstap zou moeten overwegen.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto prose prose-lg">
+
+        <!-- Intro -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            Toen ik begon met webdevelopment was Bootstrap mijn beste vriend. Kant-en-klare componenten, een grid systeem dat gewoon werkte, en documentatie waar je alles kon vinden. Maar na een tijdje voelde het beperkend. Elke website begon er hetzelfde uit te zien. Toen ontdekte ik <strong class="text-primary-600">Tailwind CSS</strong>.
+          </p>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-lightning-charge-fill text-primary-500 mr-3"></i>
+            Wat is Utility-First CSS?
+          </h2>
+          <p class="text-gray-700 mb-4">
+            In plaats van voorgedefinieerde componenten zoals <code class="bg-gray-100 px-2 py-1 rounded">.btn-primary</code> of <code class="bg-gray-100 px-2 py-1 rounded">.card</code>, gebruik je kleine, herbruikbare classes die elk één ding doen:
+          </p>
+          <div class="bg-gray-900 rounded-xl p-4 mb-4 overflow-x-auto">
+            <pre class="text-sm text-gray-100"><code>&lt;button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;
+  Klik hier
+&lt;/button&gt;</code></pre>
+          </div>
+          <p class="text-gray-700">
+            In het begin lijkt dit misschien rommelig, maar het geeft je <strong>volledige controle</strong> over je design zonder dat je custom CSS hoeft te schrijven.
+          </p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-heart-fill text-red-500 mr-3"></i>
+            Waarom ik van Tailwind hou
+          </h2>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-bold">1</span>
+              <div>
+                <h3 class="font-semibold text-gray-900">Snelheid</h3>
+                <p class="text-gray-600">Je blijft in je HTML en hoeft niet constant te switchen naar CSS bestanden.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-bold">2</span>
+              <div>
+                <h3 class="font-semibold text-gray-900">Consistentie</h3>
+                <p class="text-gray-600">Het design system met spacing, kleuren en typography is ingebouwd. Geen random pixel values meer.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-bold">3</span>
+              <div>
+                <h3 class="font-semibold text-gray-900">Responsive Design</h3>
+                <p class="text-gray-600">Met prefixes als <code class="bg-gray-100 px-1 rounded">md:</code> en <code class="bg-gray-100 px-1 rounded">lg:</code> is responsive styling super intuïtief.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-bold">4</span>
+              <div>
+                <h3 class="font-semibold text-gray-900">Geen CSS Bloat</h3>
+                <p class="text-gray-600">Met PurgeCSS (ingebouwd) worden ongebruikte styles automatisch verwijderd. Kleine bundels!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-exclamation-triangle-fill text-yellow-500 mr-3"></i>
+            De leercurve
+          </h2>
+          <p class="text-gray-700 mb-4">
+            Eerlijk is eerlijk: de eerste week was lastig. Je moet de class names leren en wennen aan lange class attributen. Maar met de <a href="https://tailwindcss.com/docs" target="_blank" class="text-primary-600 hover:underline">officiële documentatie</a> en de VS Code IntelliSense extensie gaat het snel.
+          </p>
+          <div class="bg-primary-50 border-l-4 border-primary-500 p-4 rounded-r-xl">
+            <p class="text-primary-800 font-medium">
+              <i class="bi bi-lightbulb-fill mr-2"></i>
+              Tip: Installeer de "Tailwind CSS IntelliSense" extensie in VS Code. Autocomplete maakt alles veel makkelijker!
+            </p>
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl shadow-md p-8 text-white">
+          <h2 class="text-2xl font-bold mb-4">Conclusie</h2>
+          <p class="text-primary-100 mb-4">
+            Tailwind CSS heeft mijn manier van bouwen compleet veranderd. Het is niet voor iedereen - sommige developers houden van de scheiding tussen HTML en CSS. Maar als je snel wilt itereren en volledige controle wilt over je designs, raad ik het zeker aan om het te proberen.
+          </p>
+          <p class="font-semibold">
+            Dit hele portfolio is gebouwd met Tailwind CSS!
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Author Box -->
+      <div class="max-w-3xl mx-auto mt-12">
+        <div class="bg-white rounded-2xl shadow-md p-6 flex items-center gap-6">
+          <img src="../assets/images/me-removebg.webp" alt="Kerim Örgü" class="w-20 h-20 rounded-full object-cover border-4 border-primary-200">
+          <div>
+            <h3 class="font-bold text-gray-900">Kerim Örgü</h3>
+            <p class="text-gray-600 text-sm">Full-Stack Developer gespecialiseerd in moderne webapplicaties met JavaScript, React, PHP en MySQL.</p>
+            <div class="flex gap-3 mt-2">
+              <a href="https://www.linkedin.com/in/mkerrie/" target="_blank" class="text-gray-400 hover:text-primary-600">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="https://github.com/SpicyKerrie" target="_blank" class="text-gray-400 hover:text-primary-600">
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="max-w-3xl mx-auto mt-8 flex justify-between items-center">
+        <a href="./" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+          <i class="bi bi-arrow-left mr-2"></i>
+          Alle artikelen
+        </a>
+        <a href="./php-mysql.html" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+          Volgend artikel
+          <i class="bi bi-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© <span id="year"></span> Kerim Örgü - Full-Stack Developer</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMenu() {
+      menuBtn.classList.add('active');
+      mobileNav.classList.add('active');
+      mobileOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenuFn() {
+      menuBtn.classList.remove('active');
+      mobileNav.classList.remove('active');
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.contains('active') ? closeMenuFn() : openMenu();
+    });
+
+    closeMenu.addEventListener('click', closeMenuFn);
+    mobileOverlay.addEventListener('click', closeMenuFn);
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenuFn);
+    });
+  </script>
+</body>
+</html>

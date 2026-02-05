@@ -1,0 +1,59 @@
+# Claude
+.claude/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~.nib
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if you add npm later)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# Email credentials (NEVER commit these!)
+emailjs-config.js
+credentials.json
+
+# Backup files
+backup/
+*.backup
+
+# Old/unused files
+css/style.css.old
+js/main.js.old
+js/contact.js.old

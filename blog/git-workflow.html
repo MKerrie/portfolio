@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Git workflow tips voor solo developers | Kerim Örgü</title>
+  <meta name="description" content="Praktische Git tips voor developers die alleen werken: branches, commits, en het organiseren van je code.">
+  <meta name="keywords" content="Git, GitHub, Version Control, Workflow, Branches, Commits, Solo Developer">
+  <meta name="author" content="Kerim Örgü">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mkerrie.com/blog/git-workflow.html">
+  <meta property="og:title" content="Git workflow tips voor solo developers">
+  <meta property="article:published_time" content="2025-10-20">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="../assets/images/MKLogo-removebg-preview.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          colors: {
+            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .mobile-nav {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+    .hamburger {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    .hamburger-line {
+      width: 24px;
+      height: 2px;
+      background-color: #374151;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-md" role="navigation" aria-label="Hoofd navigatie">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="../" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg p-1 border-2 border-primary-200">
+            <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain">
+          </div>
+          <span class="text-xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors">Kerim Örgü</span>
+        </a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="../" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
+          <a href="./" class="text-primary-600 font-semibold">Blog</a>
+          <a href="../#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-5 py-2 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all font-medium">Contact</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button class="hamburger md:hidden rounded-lg hover:bg-gray-100 transition-colors" id="menuBtn" aria-label="Menu openen" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav fixed top-0 right-0 h-full w-80 bg-white shadow-2xl md:hidden" id="mobileNav" style="z-index: 9999;">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-gray-800">Menu</span>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" id="closeMenu" aria-label="Menu sluiten">
+          <i class="bi bi-x-lg text-xl"></i>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <a href="../" class="block px-4 py-3 bg-gray-50 rounded-xl text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-all">
+          <i class="bi bi-house-door mr-3"></i>Home
+        </a>
+        <a href="./" class="block px-4 py-3 bg-primary-50 rounded-xl text-primary-600 font-semibold">
+          <i class="bi bi-journal-text mr-3"></i>Blog
+        </a>
+        <a href="../#contact" class="block px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-700 text-white rounded-xl font-medium text-center mt-6">
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="fixed inset-0 bg-black/60 hidden md:hidden" id="mobileOverlay" style="z-index: 9998;"></div>
+
+  <!-- Article Header -->
+  <header class="pt-32 pb-16 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="flex items-center justify-center gap-2 text-purple-200 mb-4">
+          <i class="bi bi-calendar3"></i>
+          <span>Oktober 2025</span>
+          <span class="mx-2">•</span>
+          <span>4 min lezen</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6">
+          Git workflow tips voor solo developers
+        </h1>
+        <p class="text-xl text-purple-100">
+          Ook als je alleen werkt is een goede Git workflow essentieel voor je productiviteit en code kwaliteit.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- Intro -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            "Ik werk alleen, waarom zou ik branches gebruiken?" Dit dacht ik ook in het begin. Maar na een paar keer code kwijtraken en uren debuggen, heb ik geleerd dat een goede Git workflow ook voor <strong class="text-purple-600">solo developers</strong> onmisbaar is.
+          </p>
+        </div>
+
+        <!-- Section 1: Commit Messages -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-chat-quote-fill text-purple-500 mr-3"></i>
+            1. Schrijf duidelijke commit messages
+          </h2>
+          <p class="text-gray-700 mb-4">
+            Je toekomstige zelf zal je dankbaar zijn. Een goede commit message legt uit <strong>wat</strong> en <strong>waarom</strong>:
+          </p>
+
+          <!-- Bad vs Good -->
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <div class="flex items-center gap-2 text-red-600 font-semibold mb-2">
+                <i class="bi bi-x-circle-fill"></i> Niet zo
+              </div>
+              <div class="bg-red-50 border border-red-200 rounded-xl p-3">
+                <code class="text-red-700 text-sm">
+                  "fix"<br>
+                  "update"<br>
+                  "changes"<br>
+                  "asdfasdf"
+                </code>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 text-green-600 font-semibold mb-2">
+                <i class="bi bi-check-circle-fill"></i> Beter
+              </div>
+              <div class="bg-green-50 border border-green-200 rounded-xl p-3">
+                <code class="text-green-700 text-sm">
+                  "fix: login form validation"<br>
+                  "feat: add dark mode toggle"<br>
+                  "refactor: simplify nav logic"
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-xl">
+            <p class="text-purple-800">
+              <i class="bi bi-lightbulb-fill mr-2"></i>
+              <strong>Tip:</strong> Gebruik prefixes als <code class="bg-purple-100 px-1 rounded">feat:</code>, <code class="bg-purple-100 px-1 rounded">fix:</code>, <code class="bg-purple-100 px-1 rounded">refactor:</code> voor consistentie.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 2: Branches -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-signpost-split-fill text-purple-500 mr-3"></i>
+            2. Gebruik branches (ook als solo dev!)
+          </h2>
+          <p class="text-gray-700 mb-4">
+            Branches geven je de vrijheid om te experimenteren zonder je werkende code te breken:
+          </p>
+
+          <div class="bg-gray-900 rounded-xl p-4 mb-4 overflow-x-auto">
+            <pre class="text-sm text-gray-100"><code># Nieuwe feature starten
+git checkout -b feature/dark-mode
+
+# Werk aan je feature...
+git add .
+git commit -m "feat: implement dark mode toggle"
+
+# Terug naar main en mergen
+git checkout main
+git merge feature/dark-mode
+
+# Branch opruimen
+git branch -d feature/dark-mode</code></pre>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">feature/naam</span>
+            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">fix/bug-naam</span>
+            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">experiment/idee</span>
+          </div>
+        </div>
+
+        <!-- Section 3: .gitignore -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-eye-slash-fill text-purple-500 mr-3"></i>
+            3. Vergeet je .gitignore niet
+          </h2>
+          <p class="text-gray-700 mb-4">
+            Voorkom dat je per ongeluk gevoelige data of onnodige bestanden commit:
+          </p>
+
+          <div class="bg-gray-900 rounded-xl p-4 mb-4 overflow-x-auto">
+            <pre class="text-sm text-gray-100"><code># Dependencies
+node_modules/
+vendor/
+
+# Environment variables (BELANGRIJK!)
+.env
+.env.local
+config.php
+
+# IDE settings
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db</code></pre>
+          </div>
+        </div>
+
+        <!-- Section 4: Backup -->
+        <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <i class="bi bi-cloud-upload-fill text-purple-500 mr-3"></i>
+            4. Push regelmatig naar remote
+          </h2>
+          <p class="text-gray-700 mb-4">
+            GitHub/GitLab is niet alleen voor samenwerking - het is ook je backup:
+          </p>
+
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+              <span class="text-gray-700">Push aan het einde van elke werkdag</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+              <span class="text-gray-700">Push na elke afgeronde feature</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+              <span class="text-gray-700">Gebruik private repos voor gevoelige projecten</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Commands Cheatsheet -->
+        <div class="bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl shadow-md p-8 text-white">
+          <h2 class="text-2xl font-bold mb-4">
+            <i class="bi bi-terminal-fill mr-2"></i>
+            Handige commando's
+          </h2>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-white/10 rounded-lg p-3">
+              <code class="text-purple-200">git status</code>
+              <p class="text-purple-100 mt-1">Bekijk huidige status</p>
+            </div>
+            <div class="bg-white/10 rounded-lg p-3">
+              <code class="text-purple-200">git log --oneline</code>
+              <p class="text-purple-100 mt-1">Compacte commit history</p>
+            </div>
+            <div class="bg-white/10 rounded-lg p-3">
+              <code class="text-purple-200">git diff</code>
+              <p class="text-purple-100 mt-1">Bekijk unstaged changes</p>
+            </div>
+            <div class="bg-white/10 rounded-lg p-3">
+              <code class="text-purple-200">git stash</code>
+              <p class="text-purple-100 mt-1">Tijdelijk changes opslaan</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Author Box -->
+      <div class="max-w-3xl mx-auto mt-12">
+        <div class="bg-white rounded-2xl shadow-md p-6 flex items-center gap-6">
+          <img src="../assets/images/me-removebg.webp" alt="Kerim Örgü" class="w-20 h-20 rounded-full object-cover border-4 border-purple-200">
+          <div>
+            <h3 class="font-bold text-gray-900">Kerim Örgü</h3>
+            <p class="text-gray-600 text-sm">Full-Stack Developer gespecialiseerd in moderne webapplicaties met JavaScript, React, PHP en MySQL.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="max-w-3xl mx-auto mt-8 flex justify-between items-center">
+        <a href="./php-mysql.html" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+          <i class="bi bi-arrow-left mr-2"></i>
+          Vorig artikel
+        </a>
+        <a href="./" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+          Alle artikelen
+          <i class="bi bi-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">© <span id="year"></span> Kerim Örgü - Full-Stack Developer</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMenu() {
+      menuBtn.classList.add('active');
+      mobileNav.classList.add('active');
+      mobileOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenuFn() {
+      menuBtn.classList.remove('active');
+      mobileNav.classList.remove('active');
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.contains('active') ? closeMenuFn() : openMenu();
+    });
+
+    closeMenu.addEventListener('click', closeMenuFn);
+    mobileOverlay.addEventListener('click', closeMenuFn);
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenuFn);
+    });
+  </script>
+</body>
+</html>

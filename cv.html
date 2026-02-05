@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Mevlüt Kerim Örgü | Full-Stack Developer</title>
+  <meta name="description" content="CV van Mevlüt Kerim Örgü - Full-Stack Developer gespecialiseerd in JavaScript, PHP, MySQL en Tailwind CSS. Bekijk mijn ervaring, vaardigheden en projecten.">
+  <meta name="author" content="Mevlüt Kerim Örgü">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.mkerrie.com/cv.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://www.mkerrie.com/cv.html">
+  <meta property="og:title" content="CV - Mevlüt Kerim Örgü | Full-Stack Developer">
+  <meta property="og:description" content="CV van Mevlüt Kerim Örgü - Full-Stack Developer gespecialiseerd in JavaScript, PHP, MySQL en Tailwind CSS.">
+  <meta property="og:image" content="https://www.mkerrie.com/assets/images/MKLogo-removebg-preview.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CV - Mevlüt Kerim Örgü | Full-Stack Developer">
+  <meta name="twitter:description" content="CV van Mevlüt Kerim Örgü - Full-Stack Developer gespecialiseerd in JavaScript, PHP, MySQL en Tailwind CSS.">
+  <meta name="twitter:image" content="https://www.mkerrie.com/assets/images/MKLogo-removebg-preview.webp">
+
+  <link rel="icon" type="image/webp" href="./assets/images/MKLogo-removebg-preview.webp">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          colors: {
+            primary: {
+              50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+              400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857',
+              800: '#065f46', 900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    .skill-bar { background: linear-gradient(90deg, #10b981, #047857); }
+    .accent-gradient { background: linear-gradient(135deg, #10b981, #047857); }
+
+    /* Print styles for A4 */
+    @media print {
+      html, body { width: 210mm; height: 297mm; margin: 0; padding: 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .cv-container { width: 210mm !important; min-height: 297mm !important; max-height: 297mm !important; margin: 0 !important; box-shadow: none !important; overflow: hidden !important; }
+      .print-grid { display: grid !important; grid-template-columns: 1fr 2fr !important; gap: 1.5rem !important; }
+      .print-header { flex-direction: row !important; text-align: left !important; }
+      .print-photo { width: 6rem !important; height: 6rem !important; }
+      .print-name { font-size: 1.875rem !important; }
+      .print-subtitle { font-size: 1.125rem !important; }
+      .print-text { font-size: 0.75rem !important; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+  <!-- Buttons -->
+  <div class="no-print fixed top-4 right-4 flex flex-col sm:flex-row gap-2 sm:gap-3 z-50">
+    <a href="index.html" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 sm:px-4 rounded-lg shadow-lg flex items-center gap-2 text-sm">
+      <i class="bi bi-arrow-left"></i> <span class="hidden sm:inline">Terug</span>
+    </a>
+    <button onclick="window.print()" class="bg-primary-600 hover:bg-primary-700 text-white px-3 py-2 sm:px-6 rounded-lg shadow-lg flex items-center gap-2 text-sm">
+      <i class="bi bi-download"></i> <span class="hidden sm:inline">Download</span> PDF
+    </button>
+  </div>
+
+  <!-- CV -->
+  <div class="cv-container max-w-[210mm] mx-auto bg-white shadow-none sm:shadow-2xl my-0 sm:my-8 print:my-0">
+
+    <!-- HERO HEADER -->
+    <header class="relative bg-gradient-to-br from-primary-800 via-primary-700 to-primary-600 text-white px-4 sm:px-6 py-6 sm:py-8 overflow-hidden">
+      <!-- Decorative circles -->
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-white/5 rounded-full"></div>
+
+      <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:text-left print-header">
+        <!-- Profile Photo with ring -->
+        <div class="relative flex-shrink-0">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 print-photo rounded-full bg-white p-1 shadow-xl">
+            <img src="./assets/images/me-removebg.webp" alt="Mevlüt Kerim Örgü" class="w-full h-full rounded-full object-cover">
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+            <i class="bi bi-code-slash text-primary-800 text-xs sm:text-sm"></i>
+          </div>
+        </div>
+
+        <!-- Name & Contact -->
+        <div class="flex-grow">
+          <h1 class="text-2xl sm:text-3xl print-name font-extrabold tracking-tight">MEVLÜT KERIM ÖRGÜ</h1>
+          <p class="text-base sm:text-lg print-subtitle font-medium text-primary-200 mb-2">Full-Stack Developer</p>
+          <div class="flex flex-wrap justify-center sm:justify-start gap-x-3 sm:gap-x-4 gap-y-1 text-xs print-text text-white/90">
+            <span class="flex items-center gap-1.5"><i class="bi bi-envelope-fill text-yellow-400"></i> mkorgu@gmail.com</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-geo-alt-fill text-yellow-400"></i> Schiedam</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-linkedin text-yellow-400"></i> linkedin.com/in/mkerrie</span>
+            <span class="flex items-center gap-1.5"><i class="bi bi-globe2 text-yellow-400"></i> mkerrie.com</span>
+          </div>
+        </div>
+
+        <!-- Highlight Badge -->
+        <div class="flex sm:flex flex-col items-center bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/20 mt-2 sm:mt-0">
+          <span class="text-2xl font-bold text-yellow-400">4+</span>
+          <span class="text-xs text-white/80">Projecten Live</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="px-4 sm:px-6 py-4 sm:py-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 print-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="space-y-4 sm:space-y-5 order-2 md:order-1">
+
+          <!-- Profile -->
+          <section class="bg-primary-50 rounded-xl p-3 sm:p-3">
+            <h2 class="text-base sm:text-sm print-text font-bold text-primary-800 mb-2 flex items-center gap-1.5">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-person-fill text-white text-xs"></i></span>
+              Profiel
+            </h2>
+            <p class="text-sm sm:text-xs print-text text-gray-700 leading-relaxed">
+              Gedreven Software Developer met passie voor het bouwen van moderne, gebruiksvriendelijke websites.
+              Ik combineer <strong>creativiteit</strong> met <strong>technische skills</strong> om oplossingen te maken die werken.
+              Sport leert mij dagelijks discipline en doorzetten.
+            </p>
+          </section>
+
+          <!-- Skills -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-code-slash text-white text-xs"></i></span>
+              Tech Skills
+            </h2>
+            <div class="space-y-2 sm:space-y-1.5">
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>HTML / CSS</span><span class="text-primary-600">95%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:95%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>JavaScript</span><span class="text-primary-600">90%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:90%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>Tailwind CSS</span><span class="text-primary-600">92%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:92%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>PHP</span><span class="text-primary-600">80%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:80%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>MySQL</span><span class="text-primary-600">85%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:85%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>Git & GitHub</span><span class="text-primary-600">88%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:88%"></div></div></div>
+              <div><div class="flex justify-between text-sm sm:text-xs print-text mb-0.5 font-medium"><span>React</span><span class="text-primary-600">75%</span></div><div class="h-2 sm:h-1.5 bg-gray-200 rounded-full"><div class="skill-bar h-full rounded-full" style="width:75%"></div></div></div>
+            </div>
+          </section>
+
+          <!-- Languages -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-translate text-white text-xs"></i></span>
+              Talen
+            </h2>
+            <div class="text-sm sm:text-xs print-text space-y-1">
+              <div class="flex justify-between"><span>Nederlands</span><span class="font-medium text-primary-600">Vloeiend</span></div>
+              <div class="flex justify-between"><span>Turks</span><span class="font-medium text-primary-600">Moedertaal</span></div>
+              <div class="flex justify-between"><span>Engels</span><span class="font-medium text-primary-600">Goed</span></div>
+            </div>
+          </section>
+
+          <!-- Soft Skills -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-star-fill text-white text-xs"></i></span>
+              Soft Skills
+            </h2>
+            <div class="flex flex-wrap gap-2 sm:gap-1.5">
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-primary-100 text-primary-700 rounded-full text-sm sm:text-xs print-text font-medium">Probleemoplossend</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-primary-100 text-primary-700 rounded-full text-sm sm:text-xs print-text font-medium">Teamspeler</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-primary-100 text-primary-700 rounded-full text-sm sm:text-xs print-text font-medium">Leergierig</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-primary-100 text-primary-700 rounded-full text-sm sm:text-xs print-text font-medium">Zelfstandig</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-primary-100 text-primary-700 rounded-full text-sm sm:text-xs print-text font-medium">Communicatief</span>
+            </div>
+          </section>
+
+          <!-- Interests -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-heart-fill text-white text-xs"></i></span>
+              Interesses
+            </h2>
+            <div class="flex flex-wrap gap-2 sm:gap-1.5">
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-gray-100 text-gray-600 rounded text-sm sm:text-xs print-text">Fitness</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-gray-100 text-gray-600 rounded text-sm sm:text-xs print-text">Boksen</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-gray-100 text-gray-600 rounded text-sm sm:text-xs print-text">Hardlopen</span>
+              <span class="px-3 py-1 sm:px-2 sm:py-0.5 bg-gray-100 text-gray-600 rounded text-sm sm:text-xs print-text">Tech</span>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="md:col-span-2 space-y-4 sm:space-y-5 order-1 md:order-2">
+
+          <!-- WORK EXPERIENCE -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-3 flex items-center gap-1.5 border-b-2 border-primary-500 pb-1">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-briefcase-fill text-white text-xs"></i></span>
+              Werkervaring
+            </h2>
+
+            <div class="space-y-4 sm:space-y-3.5">
+              <!-- Freelance -->
+              <div class="bg-gradient-to-r from-primary-50 to-transparent p-3 sm:p-2.5 rounded-lg border-l-4 sm:border-l-3 border-primary-500">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
+                  <div>
+                    <h3 class="font-bold text-sm sm:text-xs print-text text-gray-900">Freelance Web Developer</h3>
+                    <p class="text-sm sm:text-xs print-text text-primary-600">Zelfstandig</p>
+                  </div>
+                  <span class="text-xs font-bold text-white bg-primary-600 px-2 py-0.5 rounded w-fit">2024 - Nu</span>
+                </div>
+                <ul class="text-sm sm:text-xs print-text text-gray-600 space-y-0.5">
+                  <li>• Professionele websites ontworpen voor lokale bedrijven (King AC, YTech, Piccobello)</li>
+                  <li>• Responsive design, SEO-optimalisatie en hosting configuratie</li>
+                </ul>
+              </div>
+
+              <!-- Stage VDMI -->
+              <div class="bg-gradient-to-r from-primary-50 to-transparent p-3 sm:p-2.5 rounded-lg border-l-4 sm:border-l-3 border-primary-500">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
+                  <div>
+                    <h3 class="font-bold text-sm sm:text-xs print-text text-gray-900">Stagiair Software Development</h3>
+                    <p class="text-sm sm:text-xs print-text text-primary-600">VDMI, Rotterdam</p>
+                  </div>
+                  <span class="text-xs font-bold text-white bg-primary-600 px-2 py-0.5 rounded w-fit">2025 - 2026</span>
+                </div>
+                <ul class="text-sm sm:text-xs print-text text-gray-600 space-y-0.5">
+                  <li>• Webapplicaties ontwikkelen in een professioneel development team</li>
+                  <li>• Werken met Agile/Scrum methodologie en Git workflows</li>
+                </ul>
+              </div>
+
+              <!-- Albert Heijn -->
+              <div class="p-3 sm:p-2 border-l-4 sm:border-l-2 border-gray-300 ml-1">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <div>
+                    <h3 class="font-semibold text-sm sm:text-xs print-text text-gray-900">Supermarktmedewerker</h3>
+                    <p class="text-sm sm:text-xs print-text text-gray-500">Albert Heijn, Spaland</p>
+                  </div>
+                  <span class="text-sm sm:text-xs print-text text-gray-500">Dec 2023 - Nu</span>
+                </div>
+                <p class="text-sm sm:text-xs print-text text-gray-600 mt-1">Klantenservice, kassa, vakkenvullen - leren van verantwoordelijkheid en teamwork</p>
+              </div>
+
+              <!-- Elite -->
+              <div class="p-3 sm:p-2 border-l-4 sm:border-l-2 border-gray-300 ml-1">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <div>
+                    <h3 class="font-semibold text-sm sm:text-xs print-text text-gray-900">Medewerker</h3>
+                    <p class="text-sm sm:text-xs print-text text-gray-500">Elite Party Centrum</p>
+                  </div>
+                  <span class="text-sm sm:text-xs print-text text-gray-500">2024 - 2025</span>
+                </div>
+                <p class="text-sm sm:text-xs print-text text-gray-600 mt-1">Gastvrijheid en ondersteuning bij grote evenementen</p>
+              </div>
+
+              <!-- Mushi -->
+              <div class="p-3 sm:p-2 border-l-4 sm:border-l-2 border-gray-300 ml-1">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <div>
+                    <h3 class="font-semibold text-sm sm:text-xs print-text text-gray-900">Medewerker</h3>
+                    <p class="text-sm sm:text-xs print-text text-gray-500">Mushi Kapper</p>
+                  </div>
+                  <span class="text-sm sm:text-xs print-text text-gray-500">2021 - 2023</span>
+                </div>
+                <p class="text-sm sm:text-xs print-text text-gray-600 mt-1">Klantenservice en salon ondersteuning</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- EDUCATION -->
+          <section>
+            <h2 class="text-base sm:text-sm print-text font-bold text-gray-900 mb-3 flex items-center gap-1.5 border-b-2 border-primary-500 pb-1">
+              <span class="w-5 h-5 accent-gradient rounded flex items-center justify-center"><i class="bi bi-mortarboard-fill text-white text-xs"></i></span>
+              Opleiding
+            </h2>
+
+            <div class="space-y-4">
+              <!-- MBO -->
+              <div class="bg-gradient-to-r from-primary-50 to-transparent p-3 sm:p-2.5 rounded-lg border-l-4 sm:border-l-3 border-primary-500">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
+                  <div>
+                    <h3 class="font-bold text-sm sm:text-xs print-text text-gray-900">MBO Niveau 4 - Software Developer</h3>
+                    <p class="text-sm sm:text-xs print-text text-primary-600">Grafisch Lyceum Rotterdam</p>
+                  </div>
+                  <span class="text-xs font-bold text-white bg-primary-600 px-2 py-0.5 rounded w-fit">2022 - 2026</span>
+                </div>
+                <ul class="text-sm sm:text-xs print-text text-gray-600 space-y-0.5">
+                  <li>• <strong>Frontend:</strong> HTML5, CSS3, JavaScript, React, Tailwind CSS</li>
+                  <li>• <strong>Backend:</strong> PHP, MySQL database design & management</li>
+                  <li>• <strong>Tools:</strong> Git, GitHub, VS Code, Figma</li>
+                  <li>• <strong>Methodiek:</strong> Agile/Scrum, projectmatig werken in teams</li>
+                </ul>
+              </div>
+
+              <!-- VMBO -->
+              <div class="p-3 sm:p-2 border-l-4 sm:border-l-2 border-gray-300 ml-1">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <div>
+                    <h3 class="font-semibold text-sm sm:text-xs print-text text-gray-900">VMBO-TL Diploma (MAVO)</h3>
+                    <p class="text-sm sm:text-xs print-text text-gray-500">Lentiz Life College</p>
+                  </div>
+                  <span class="text-sm sm:text-xs print-text text-gray-500">2019 - 2023</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary-800 text-white px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm sm:text-xs print-text">
+      <span>Referenties op aanvraag</span>
+      <span class="flex items-center gap-1.5">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <strong>Beschikbaar voor nieuwe uitdagingen</strong>
+      </span>
+    </footer>
+
+  </div>
+</body>
+</html>
