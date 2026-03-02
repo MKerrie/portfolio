@@ -2,12 +2,16 @@
 <html lang="nl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
+  <script>(function(){var l=localStorage.getItem('language')||'nl';document.documentElement.lang=l;if(l!=='nl')document.documentElement.classList.add('lang-loading');})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PHP & MySQL: Best practices voor beginners | Kerim Örgü</title>
+  <title>PHP & MySQL: Best practices voor beginners | Mevlüt Kerim Örgü</title>
   <meta name="description" content="Leer de belangrijkste best practices voor PHP en MySQL: prepared statements, database normalisatie en veilige code schrijven.">
   <meta name="keywords" content="PHP, MySQL, Database, Backend, Prepared Statements, SQL Injection, Best Practices">
-  <meta name="author" content="Kerim Örgü">
+  <meta name="author" content="Mevlüt Kerim Örgü">
+  <link rel="canonical" href="https://www.mkerrie.com/blog/php-mysql.html">
+  <link rel="alternate" hreflang="nl" href="https://www.mkerrie.com/blog/php-mysql.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.mkerrie.com/blog/php-mysql.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -16,31 +20,24 @@
   <meta property="article:published_time" content="2025-11-15">
 
   <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../favicon.png">
   <link rel="icon" type="image/webp" href="../assets/images/MKLogo-removebg-preview.webp">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Poppins', 'sans-serif'] },
-          colors: {
-            primary: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind CSS (built) -->
+  <link rel="stylesheet" href="../assets/css/tailwind.css">
 
   <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
   <style>
+    html.lang-loading [data-i18n],html.lang-loading [data-i18n-html]{visibility:hidden}
+
     .mobile-nav {
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
@@ -79,54 +76,99 @@
 <body class="bg-gray-50 text-gray-900 font-sans">
 
   <!-- Navigation -->
-  <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-md" role="navigation" aria-label="Hoofd navigatie">
-    <div class="container mx-auto px-4 py-4">
+  <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-md" role="navigation" aria-label="Hoofd navigatie" data-i18n-aria="nav.aria">
+    <div class="container mx-auto px-4 py-3 md:py-4">
       <div class="flex justify-between items-center">
-        <a href="../" class="flex items-center space-x-3 group">
-          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg p-1 border-2 border-primary-200">
-            <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain">
+        <!-- Logo -->
+        <a href="../" class="flex items-center space-x-2 md:space-x-3 group">
+          <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-primary-200 overflow-hidden">
+            <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain scale-150">
           </div>
-          <span class="text-xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors">Kerim Örgü</span>
+          <span class="hidden md:inline text-lg md:text-xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors">Mevlüt Kerim Örgü</span>
         </a>
-        <!-- Desktop Menu -->
+
+        <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center space-x-6">
-          <a href="../" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
-          <a href="./" class="text-primary-600 font-semibold">Blog</a>
-          <a href="../#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-5 py-2 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all font-medium">Contact</a>
+          <a href="../" class="text-gray-700 hover:text-primary-600 font-medium transition-colors" data-i18n="nav.home">Home</a>
+          <a href="../#projects" class="text-gray-700 hover:text-primary-600 font-medium transition-colors" data-i18n="nav.projects">Projecten</a>
+          <a href="./" class="text-primary-700 font-semibold" data-i18n="nav.blog">Blog</a>
+          <!-- Language Toggle -->
+          <div class="flex items-center bg-gray-100 rounded-full p-0.5" role="radiogroup" aria-label="Language">
+            <button data-lang-btn="nl" class="px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-300 bg-primary-700 text-white shadow-md" role="radio" aria-checked="true">NL</button>
+            <button data-lang-btn="en" class="px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-300 text-gray-700" role="radio" aria-checked="false">EN</button>
+          </div>
+          <a href="../#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-5 py-2 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all font-medium" data-i18n="nav.contact">
+            Contact
+          </a>
         </div>
-        <!-- Mobile Menu Button -->
-        <button class="hamburger md:hidden rounded-lg hover:bg-gray-100 transition-colors" id="menuBtn" aria-label="Menu openen" aria-expanded="false">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
+        <!-- Language Toggle (Mobile) -->
+        <div class="flex items-center gap-2 md:hidden">
+          <div class="flex items-center bg-gray-100 rounded-full p-0.5" role="radiogroup" aria-label="Language">
+            <button data-lang-btn="nl" class="px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-300 bg-primary-700 text-white shadow-md" role="radio" aria-checked="true">NL</button>
+            <button data-lang-btn="en" class="px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-300 text-gray-700" role="radio" aria-checked="false">EN</button>
+          </div>
+          <!-- Mobile Menu Button -->
+          <button class="hamburger rounded-lg hover:bg-gray-100 transition-colors" id="menuBtn" aria-label="Menu openen" data-i18n-aria="nav.menu.open" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Navigation -->
+  <!-- Mobile Navigation Menu - Outside nav for proper z-index -->
   <div class="mobile-nav fixed top-0 right-0 h-full w-80 bg-white shadow-2xl md:hidden" id="mobileNav" style="z-index: 9999;">
-    <div class="p-6">
-      <div class="flex justify-between items-center mb-8">
-        <span class="text-xl font-bold text-gray-800">Menu</span>
-        <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" id="closeMenu" aria-label="Menu sluiten">
-          <i class="bi bi-x-lg text-xl"></i>
-        </button>
-      </div>
-      <div class="space-y-4">
-        <a href="../" class="block px-4 py-3 bg-gray-50 rounded-xl text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-all">
-          <i class="bi bi-house-door mr-3"></i>Home
-        </a>
-        <a href="./" class="block px-4 py-3 bg-primary-50 rounded-xl text-primary-600 font-semibold">
-          <i class="bi bi-journal-text mr-3"></i>Blog
-        </a>
-        <a href="../#contact" class="block px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-700 text-white rounded-xl font-medium text-center mt-6">
-          Contact
-        </a>
-      </div>
+    <!-- Header with close button -->
+    <div class="flex items-center justify-between p-5 border-b border-gray-100">
+      <span class="text-lg font-bold text-gray-800" data-i18n="nav.menu">Menu</span>
+      <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-red-100 hover:text-red-600 transition-all" id="closeBtn" aria-label="Menu sluiten" data-i18n-aria="nav.menu.close">
+        <i class="bi bi-x-lg text-xl"></i>
+      </button>
     </div>
+
+    <!-- Navigation Links -->
+    <nav class="p-5 space-y-2">
+      <a href="../" class="flex items-center gap-4 py-4 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all">
+        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+          <i class="bi bi-house text-lg"></i>
+        </div>
+        <span class="text-base font-medium" data-i18n="nav.home">Home</span>
+      </a>
+      <a href="../#projects" class="flex items-center gap-4 py-4 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all">
+        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+          <i class="bi bi-folder text-lg"></i>
+        </div>
+        <span class="text-base font-medium" data-i18n="nav.projects">Projecten</span>
+      </a>
+      <a href="./" class="flex items-center gap-4 py-4 px-4 text-primary-700 bg-primary-50 rounded-xl">
+        <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+          <i class="bi bi-journal-text text-lg"></i>
+        </div>
+        <span class="text-base font-semibold" data-i18n="nav.blog">Blog</span>
+      </a>
+      <a href="../#contact" class="flex items-center gap-4 py-4 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all">
+        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+          <i class="bi bi-envelope text-lg"></i>
+        </div>
+        <span class="text-base font-medium" data-i18n="nav.contact">Contact</span>
+      </a>
+
+      <!-- CTA Button -->
+      <div class="pt-4 mt-4 border-t border-gray-100">
+        <a href="../#contact" class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+          <i class="bi bi-chat-dots"></i>
+          <span data-i18n="nav.contact.cta">Neem Contact Op</span>
+        </a>
+      </div>
+    </nav>
   </div>
+
+  <!-- Mobile Overlay -->
   <div class="fixed inset-0 bg-black/60 hidden md:hidden" id="mobileOverlay" style="z-index: 9998;"></div>
+
+  <main>
 
   <!-- Article Header -->
   <header class="pt-32 pb-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
@@ -134,19 +176,25 @@
       <div class="max-w-3xl mx-auto text-center">
         <div class="flex items-center justify-center gap-2 text-blue-200 mb-4">
           <i class="bi bi-calendar3"></i>
-          <span>November 2025</span>
+          <span data-i18n="blog.phpmysql.date">November 2025</span>
           <span class="mx-2">•</span>
-          <span>7 min lezen</span>
+          <span data-i18n="blog.phpmysql.readtime">7 min lezen</span>
         </div>
-        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6" data-i18n="blog.phpmysql.title">
           PHP & MySQL: Best practices voor beginners
         </h1>
-        <p class="text-xl text-blue-100">
+        <p class="text-xl text-blue-100" data-i18n="blog.phpmysql.subtitle">
           De belangrijkste lessen die ik heb geleerd over veilig en efficiënt werken met databases.
         </p>
       </div>
     </div>
   </header>
+
+  <!-- Dutch-only notice -->
+  <div data-i18n-show="en" class="hidden max-w-4xl mx-auto mb-6 bg-blue-50 border border-blue-200 rounded-xl p-4 text-blue-700 flex items-center gap-2">
+    <i class="bi bi-info-circle"></i>
+    <span data-i18n="blog.notice.dutch">Dit artikel is beschikbaar in het Nederlands.</span>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16">
@@ -155,7 +203,7 @@
 
         <!-- Intro -->
         <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
-          <p class="text-xl text-gray-700 leading-relaxed">
+          <p class="text-xl text-gray-700 leading-relaxed" data-i18n-html="blog.phpmysql.intro">
             Tijdens mijn opleiding en projecten heb ik veel geleerd over PHP en MySQL. Sommige lessen kwamen uit documentatie, andere uit fouten die ik zelf maakte. In dit artikel deel ik de <strong class="text-blue-600">belangrijkste best practices</strong> die elke beginner zou moeten kennen.
           </p>
         </div>
@@ -164,16 +212,16 @@
         <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
             <i class="bi bi-shield-exclamation text-red-500 mr-3"></i>
-            1. Voorkom SQL Injection
+            <span data-i18n="blog.phpmysql.h2.sqlinjection">1. Voorkom SQL Injection</span>
           </h2>
-          <p class="text-gray-700 mb-4">
+          <p class="text-gray-700 mb-4" data-i18n-html="blog.phpmysql.p.sqlinjection">
             Dit is de <strong>belangrijkste regel</strong>. Nooit, maar dan ook nooit, user input direct in je SQL query plaatsen:
           </p>
 
           <!-- Bad Example -->
           <div class="mb-4">
             <div class="flex items-center gap-2 text-red-600 font-semibold mb-2">
-              <i class="bi bi-x-circle-fill"></i> FOUT - Doe dit NOOIT
+              <i class="bi bi-x-circle-fill"></i> <span data-i18n="blog.phpmysql.label.bad">FOUT - Doe dit NOOIT</span>
             </div>
             <div class="bg-red-50 border border-red-200 rounded-xl p-4 overflow-x-auto">
               <pre class="text-sm text-red-800"><code>$query = "SELECT * FROM users WHERE id = " . $_GET['id'];
@@ -184,7 +232,7 @@ $result = mysqli_query($conn, $query);</code></pre>
           <!-- Good Example -->
           <div class="mb-4">
             <div class="flex items-center gap-2 text-green-600 font-semibold mb-2">
-              <i class="bi bi-check-circle-fill"></i> GOED - Prepared Statements
+              <i class="bi bi-check-circle-fill"></i> <span data-i18n="blog.phpmysql.label.good">GOED - Prepared Statements</span>
             </div>
             <div class="bg-green-50 border border-green-200 rounded-xl p-4 overflow-x-auto">
               <pre class="text-sm text-green-800"><code>$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
@@ -195,7 +243,7 @@ $result = $stmt->get_result();</code></pre>
           </div>
 
           <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-xl">
-            <p class="text-yellow-800">
+            <p class="text-yellow-800" data-i18n-html="blog.phpmysql.tip.sql">
               <i class="bi bi-lightbulb-fill mr-2"></i>
               <strong>Tip:</strong> Gebruik PDO of MySQLi met prepared statements. Altijd. Geen uitzonderingen.
             </p>
@@ -206,9 +254,9 @@ $result = $stmt->get_result();</code></pre>
         <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
             <i class="bi bi-key-fill text-blue-500 mr-3"></i>
-            2. Hash Wachtwoorden Correct
+            <span data-i18n="blog.phpmysql.h2.password">2. Hash Wachtwoorden Correct</span>
           </h2>
-          <p class="text-gray-700 mb-4">
+          <p class="text-gray-700 mb-4" data-i18n-html="blog.phpmysql.p.password">
             Sla wachtwoorden <strong>nooit</strong> op als plain text. Gebruik altijd PHP's ingebouwde functies:
           </p>
 
@@ -222,7 +270,7 @@ if (password_verify($inputPassword, $hashedPassword)) {
 }</code></pre>
           </div>
 
-          <p class="text-gray-600 text-sm">
+          <p class="text-gray-600 text-sm" data-i18n-html="blog.phpmysql.p.password2">
             <code class="bg-gray-100 px-1 rounded">PASSWORD_DEFAULT</code> gebruikt automatisch het beste beschikbare algoritme (momenteel bcrypt).
           </p>
         </div>
@@ -231,9 +279,9 @@ if (password_verify($inputPassword, $hashedPassword)) {
         <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
             <i class="bi bi-bug-fill text-purple-500 mr-3"></i>
-            3. Error Handling
+            <span data-i18n="blog.phpmysql.h2.error">3. Error Handling</span>
           </h2>
-          <p class="text-gray-700 mb-4">
+          <p class="text-gray-700 mb-4" data-i18n="blog.phpmysql.p.error">
             Toon nooit database errors aan gebruikers in productie. Log ze in plaats daarvan:
           </p>
 
@@ -255,55 +303,55 @@ if (password_verify($inputPassword, $hashedPassword)) {
         <div class="bg-white rounded-2xl shadow-md p-8 mb-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
             <i class="bi bi-diagram-3-fill text-green-500 mr-3"></i>
-            4. Database Normalisatie
+            <span data-i18n="blog.phpmysql.h2.normalization">4. Database Normalisatie</span>
           </h2>
-          <p class="text-gray-700 mb-4">
+          <p class="text-gray-700 mb-4" data-i18n="blog.phpmysql.p.normalization">
             Een goed ontworpen database bespaart je later veel problemen. De basis regels:
           </p>
 
           <div class="grid md:grid-cols-2 gap-4">
             <div class="bg-gray-50 p-4 rounded-xl">
-              <h4 class="font-semibold text-gray-900 mb-2">1NF - Eerste Normaalvorm</h4>
-              <p class="text-gray-600 text-sm">Elke kolom bevat atomaire (ondeelbare) waarden. Geen lijsten in één veld.</p>
+              <h3 class="font-semibold text-gray-900 mb-2" data-i18n="blog.phpmysql.nf1.title">1NF - Eerste Normaalvorm</h3>
+              <p class="text-gray-600 text-sm" data-i18n="blog.phpmysql.nf1.desc">Elke kolom bevat atomaire (ondeelbare) waarden. Geen lijsten in één veld.</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl">
-              <h4 class="font-semibold text-gray-900 mb-2">2NF - Tweede Normaalvorm</h4>
-              <p class="text-gray-600 text-sm">Alle niet-sleutel kolommen zijn volledig afhankelijk van de primaire sleutel.</p>
+              <h3 class="font-semibold text-gray-900 mb-2" data-i18n="blog.phpmysql.nf2.title">2NF - Tweede Normaalvorm</h3>
+              <p class="text-gray-600 text-sm" data-i18n="blog.phpmysql.nf2.desc">Alle niet-sleutel kolommen zijn volledig afhankelijk van de primaire sleutel.</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl">
-              <h4 class="font-semibold text-gray-900 mb-2">3NF - Derde Normaalvorm</h4>
-              <p class="text-gray-600 text-sm">Geen transitieve afhankelijkheden tussen niet-sleutel kolommen.</p>
+              <h3 class="font-semibold text-gray-900 mb-2" data-i18n="blog.phpmysql.nf3.title">3NF - Derde Normaalvorm</h3>
+              <p class="text-gray-600 text-sm" data-i18n="blog.phpmysql.nf3.desc">Geen transitieve afhankelijkheden tussen niet-sleutel kolommen.</p>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl">
-              <h4 class="font-semibold text-gray-900 mb-2">Foreign Keys</h4>
-              <p class="text-gray-600 text-sm">Gebruik foreign keys voor relaties en data integriteit.</p>
+              <h3 class="font-semibold text-gray-900 mb-2" data-i18n="blog.phpmysql.fk.title">Foreign Keys</h3>
+              <p class="text-gray-600 text-sm" data-i18n="blog.phpmysql.fk.desc">Gebruik foreign keys voor relaties en data integriteit.</p>
             </div>
           </div>
         </div>
 
         <!-- Checklist -->
         <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl shadow-md p-8 text-white">
-          <h2 class="text-2xl font-bold mb-4">Checklist voor je project</h2>
+          <h2 class="text-2xl font-bold mb-4" data-i18n="blog.phpmysql.h2.checklist">Checklist voor je project</h2>
           <ul class="space-y-3">
             <li class="flex items-center gap-3">
               <i class="bi bi-check-square-fill text-blue-200"></i>
-              Prepared statements voor alle queries
+              <span data-i18n="blog.phpmysql.check1">Prepared statements voor alle queries</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="bi bi-check-square-fill text-blue-200"></i>
-              Wachtwoorden gehasht met password_hash()
+              <span data-i18n="blog.phpmysql.check2">Wachtwoorden gehasht met password_hash()</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="bi bi-check-square-fill text-blue-200"></i>
-              Error handling met try-catch
+              <span data-i18n="blog.phpmysql.check3">Error handling met try-catch</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="bi bi-check-square-fill text-blue-200"></i>
-              Input validatie en sanitization
+              <span data-i18n="blog.phpmysql.check4">Input validatie en sanitization</span>
             </li>
             <li class="flex items-center gap-3">
               <i class="bi bi-check-square-fill text-blue-200"></i>
-              Database connection in apart config bestand
+              <span data-i18n="blog.phpmysql.check5">Database connection in apart config bestand</span>
             </li>
           </ul>
         </div>
@@ -313,41 +361,60 @@ if (password_verify($inputPassword, $hashedPassword)) {
       <!-- Author Box -->
       <div class="max-w-3xl mx-auto mt-12">
         <div class="bg-white rounded-2xl shadow-md p-6 flex items-center gap-6">
-          <img src="../assets/images/me-removebg.webp" alt="Kerim Örgü" class="w-20 h-20 rounded-full object-cover border-4 border-blue-200">
+          <img src="../assets/images/profile-kerim.webp" alt="Mevlüt Kerim Örgü" class="w-20 h-20 rounded-full object-cover border-4 border-blue-200">
           <div>
-            <h3 class="font-bold text-gray-900">Kerim Örgü</h3>
-            <p class="text-gray-600 text-sm">Full-Stack Developer gespecialiseerd in moderne webapplicaties met JavaScript, React, PHP en MySQL.</p>
+            <h3 class="font-bold text-gray-900">Mevlüt Kerim Örgü</h3>
+            <p class="text-gray-600 text-sm" data-i18n="blog.author.bio">Full-Stack Developer gespecialiseerd in moderne webapplicaties met JavaScript, React, PHP en MySQL.</p>
           </div>
         </div>
       </div>
 
       <!-- Navigation -->
       <div class="max-w-3xl mx-auto mt-8 flex justify-between items-center">
-        <a href="./tailwind-css.html" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+        <a href="./tailwind-css.html" class="inline-flex items-center text-primary-700 hover:text-primary-800 font-semibold">
           <i class="bi bi-arrow-left mr-2"></i>
-          Vorig artikel
+          <span data-i18n="blog.nav.prev">Vorig artikel</span>
         </a>
-        <a href="./git-workflow.html" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
-          Volgend artikel
+        <a href="./git-workflow.html" class="inline-flex items-center text-primary-700 hover:text-primary-800 font-semibold">
+          <span data-i18n="blog.nav.next">Volgend artikel</span>
           <i class="bi bi-arrow-right ml-2"></i>
         </a>
       </div>
     </div>
   </article>
 
+  </main>
+
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-8">
+  <footer class="bg-gray-900 text-white py-12">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-400">© <span id="year"></span> Kerim Örgü - Full-Stack Developer</p>
+      <img src="../assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="h-20 mx-auto mb-4" width="120" height="80">
+      <p class="text-gray-400 mb-4" data-i18n="footer.copyright">Mevlüt Kerim Örgü | Full-Stack Developer</p>
+      <div class="flex justify-center gap-4 mb-6">
+        <a href="https://www.linkedin.com/in/mkerrie/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/SpicyKerrie" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.instagram.com/kerimorgu_/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+      </div>
+      <p class="text-gray-400 text-sm">© <span class="footer-year"></span> Mevlüt Kerim Örgü</p>
     </div>
   </footer>
 
+  <script defer src="../assets/js/translations.js"></script>
+  <script defer src="../assets/js/language.js"></script>
+
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set current year
+    document.querySelectorAll('.footer-year').forEach(function(el) { el.textContent = new Date().getFullYear(); });
 
     // Mobile menu functionality
     const menuBtn = document.getElementById('menuBtn');
-    const closeMenu = document.getElementById('closeMenu');
+    const closeBtn = document.getElementById('closeBtn');
     const mobileNav = document.getElementById('mobileNav');
     const mobileOverlay = document.getElementById('mobileOverlay');
 
@@ -356,26 +423,22 @@ if (password_verify($inputPassword, $hashedPassword)) {
       mobileNav.classList.add('active');
       mobileOverlay.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-      menuBtn.setAttribute('aria-expanded', 'true');
     }
 
-    function closeMenuFn() {
+    function closeMenu() {
       menuBtn.classList.remove('active');
       mobileNav.classList.remove('active');
       mobileOverlay.classList.add('hidden');
       document.body.style.overflow = '';
-      menuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.contains('active') ? closeMenuFn() : openMenu();
-    });
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
 
-    closeMenu.addEventListener('click', closeMenuFn);
-    mobileOverlay.addEventListener('click', closeMenuFn);
-
+    // Close menu on link click
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenuFn);
+      link.addEventListener('click', closeMenu);
     });
   </script>
 </body>

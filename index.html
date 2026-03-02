@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){var l=localStorage.getItem('language')||'nl';document.documentElement.lang=l;if(l!=='nl')document.documentElement.classList.add('lang-loading');})();
+  </script>
 
   <!-- Primary Meta Tags -->
-  <title>Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen & Applicaties</title>
-  <meta name="title" content="Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen & Applicaties">
+  <title>Mevlüt Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen & Applicaties</title>
+  <meta name="title" content="Mevlüt Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen & Applicaties">
   <meta name="description" content="Full-Stack Developer gespecialiseerd in moderne webapplicaties. Transformeer uw ideeën in krachtige, schaalbare oplossingen met JavaScript, React, PHP, MySQL en Tailwind CSS.">
-  <meta name="keywords" content="Full-Stack Developer, Web Developer, Frontend Developer, Backend Developer, JavaScript, React, Tailwind CSS, PHP, MySQL, Webapplicaties, Portfolio, Schiedam, Nederland, Kerim Örgü, MBO Ontwikkelaar">
-  <meta name="author" content="Kerim Örgü">
+  <meta name="keywords" content="Full-Stack Developer, Web Developer, Frontend Developer, Backend Developer, JavaScript, React, Tailwind CSS, PHP, MySQL, Webapplicaties, Portfolio, Schiedam, Nederland, Mevlüt Kerim Örgü, MBO Ontwikkelaar">
+  <meta name="author" content="Mevlüt Kerim Örgü">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="language" content="nl">
   <link rel="canonical" href="https://www.mkerrie.com/">
+  <link rel="alternate" hreflang="nl" href="https://www.mkerrie.com/">
+  <link rel="alternate" hreflang="x-default" href="https://www.mkerrie.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.mkerrie.com/">
-  <meta property="og:site_name" content="Kerim Örgü Portfolio">
-  <meta property="og:title" content="Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen">
+  <meta property="og:site_name" content="Mevlüt Kerim Örgü Portfolio">
+  <meta property="og:title" content="Mevlüt Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen">
   <meta property="og:description" content="Full-Stack Developer gespecialiseerd in moderne webapplicaties. Transformeer uw ideeën in krachtige oplossingen met JavaScript, React, PHP en MySQL.">
-  <meta property="og:image" content="https://www.mkerrie.com/assets/images/MKLogo-removebg-preview.webp">
+  <meta property="og:image" content="https://www.mkerrie.com/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="nl_NL">
@@ -28,14 +33,13 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.mkerrie.com/">
-  <meta name="twitter:title" content="Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen">
+  <meta name="twitter:title" content="Mevlüt Kerim Örgü | Full-Stack Developer - Moderne Weboplossingen">
   <meta name="twitter:description" content="Full-Stack Developer gespecialiseerd in moderne webapplicaties. JavaScript, React, PHP, MySQL en Tailwind CSS specialist.">
-  <meta name="twitter:image" content="https://www.mkerrie.com/assets/images/MKLogo-removebg-preview.webp">
+  <meta name="twitter:image" content="https://www.mkerrie.com/assets/images/og-image.png">
 
   <!-- Additional SEO & Performance -->
   <meta name="theme-color" content="#10b981">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" href="./favicon.png">
   <link rel="icon" type="image/webp" href="./assets/images/MKLogo-removebg-preview.webp">
   <link rel="apple-touch-icon" href="./assets/images/MKLogo-removebg-preview.webp">
 
@@ -48,7 +52,7 @@
     /* Critical styles for fast initial render */
     *,*::before,*::after{box-sizing:border-box}
     body{margin:0;font-family:'Inter','Poppins',system-ui,-apple-system,sans-serif;line-height:1.6}
-    .glass{background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .glass{background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
     .aurora-bg{background:linear-gradient(135deg,#047857 0%,#065f46 25%,#064e3b 50%,#059669 75%,#10b981 100%);background-size:400% 400%;animation:aurora 15s ease infinite}
     @keyframes aurora{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
     .gradient-text-animated{background:linear-gradient(90deg,#34d399,#a5f3fc,#10b981,#f0abfc,#34d399);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShiftName 6s ease infinite}
@@ -75,6 +79,8 @@
     .dark .mobile-nav-premium{background:#111827!important}
     .dark .mobile-nav-premium .menu-link-box{background:#1e293b!important}
     .dark .mobile-nav-premium .menu-link-text{color:#e2e8f0!important}
+    /* FOUC prevention for language switch */
+    html.lang-loading [data-i18n],html.lang-loading [data-i18n-html]{visibility:hidden}
   </style>
 
   <!-- Structured Data / JSON-LD -->
@@ -82,7 +88,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Kerim Örgü",
+    "name": "Mevlüt Kerim Örgü",
     "jobTitle": "Full-Stack Developer",
     "description": "Full-Stack Developer gespecialiseerd in moderne webapplicaties met JavaScript, React, PHP en MySQL",
     "url": "https://www.mkerrie.com",
@@ -117,62 +123,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
-            heading: ['Poppins', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            primary: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b',
-            }
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out',
-            'slide-up': 'slideUp 0.7s ease-out',
-            'slide-down': 'slideDown 0.7s ease-out',
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'spin-slow': 'spin 8s linear infinite',
-            'bounce-slow': 'bounce 3s infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(30px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' },
-            },
-            slideDown: {
-              '0%': { transform: 'translateY(-30px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
-            },
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind CSS (built) -->
+  <link rel="stylesheet" href="./assets/css/tailwind.css">
 
   <!-- Bootstrap Icons - Non-render-blocking -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
@@ -196,53 +148,65 @@
     <div class="container mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
         <!-- Logo -->
-        <a href="#home" class="flex items-center space-x-4 group" aria-label="Kerim Örgü - Home">
-          <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-300 p-1 border-2 border-primary-200">
-            <img src="./assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain">
+        <a href="#home" class="flex items-center space-x-4 group" aria-label="Mevlüt Kerim Örgü - Home">
+          <div class="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-transform duration-300 border-2 border-primary-200 overflow-hidden">
+            <img src="./assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="w-full h-full object-contain scale-150">
           </div>
-          <span class="text-2xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors duration-300">Kerim Örgü</span>
+          <span class="hidden md:inline text-2xl font-bold text-gray-800 group-hover:text-primary-600 transition-colors duration-300">Mevlüt Kerim Örgü</span>
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
           <a href="#home" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 relative group">
-            Home
+            <span data-i18n="nav.home">Home</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
           </a>
           <a href="#about" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 relative group">
-            Over Mij
+            <span data-i18n="nav.about">Over Mij</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
           </a>
           <a href="#skills" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 relative group">
-            Vaardigheden
+            <span data-i18n="nav.skills">Vaardigheden</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
           </a>
           <a href="#projects" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 relative group">
-            Projecten
+            <span data-i18n="nav.projects">Projecten</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
           </a>
           <a href="#blog" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 relative group">
-            Blog
+            <span data-i18n="nav.blog">Blog</span>
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
           </a>
 
           <!-- Theme Toggle -->
-          <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-110" aria-label="Toggle dark mode" aria-pressed="false">
+          <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-110" aria-label="Toggle dark mode" data-i18n-aria="nav.darkmode.aria" aria-pressed="false">
             <i class="bi bi-sun-fill text-yellow-500 text-xl"></i>
           </button>
 
-          <a href="#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-2.5 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
+          <!-- Language Toggle -->
+          <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-0.5" role="radiogroup" aria-label="Language" data-i18n-aria="nav.language.aria">
+            <button data-lang-btn="nl" class="px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 bg-primary-600 text-white shadow-md" role="radio" aria-checked="true" aria-label="NL" data-i18n-aria="nav.lang.nl.aria">NL</button>
+            <button data-lang-btn="en" class="px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-gray-700 dark:text-gray-400" role="radio" aria-checked="false" aria-label="English" data-i18n-aria="nav.lang.en.aria">EN</button>
+          </div>
+
+          <a href="#contact" class="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-2.5 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-xl font-medium" data-i18n="nav.contact">
             Contact
           </a>
         </div>
 
-        <!-- Mobile Theme Toggle & Burger Menu -->
-        <div class="md:hidden flex items-center space-x-3">
-          <button id="themeToggleMobile" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300" aria-label="Toggle dark mode" aria-pressed="false">
+        <!-- Mobile Theme Toggle, Language Toggle & Burger Menu -->
+        <div class="md:hidden flex items-center space-x-2">
+          <button id="themeToggleMobile" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300" aria-label="Toggle dark mode" data-i18n-aria="nav.darkmode.aria" aria-pressed="false">
             <i class="bi bi-sun-fill text-yellow-500 text-lg"></i>
           </button>
 
-          <button class="hamburger-premium md:hidden rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" id="mobileMenuBtn" aria-label="Menu openen">
+          <!-- Language Toggle Mobile -->
+          <div class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-0.5" role="radiogroup" aria-label="Language" data-i18n-aria="nav.language.aria">
+            <button data-lang-btn="nl" class="px-2 py-1 rounded-full text-xs font-semibold transition-all duration-300 bg-primary-600 text-white shadow-md" role="radio" aria-checked="true" aria-label="NL" data-i18n-aria="nav.lang.nl.aria">NL</button>
+            <button data-lang-btn="en" class="px-2 py-1 rounded-full text-xs font-semibold transition-all duration-300 text-gray-700 dark:text-gray-400" role="radio" aria-checked="false" aria-label="English" data-i18n-aria="nav.lang.en.aria">EN</button>
+          </div>
+
+          <button class="hamburger-premium md:hidden rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" id="mobileMenuBtn" data-i18n-aria="nav.menu.open" aria-label="Menu openen">
             <span class="hamburger-line-premium"></span>
             <span class="hamburger-line-premium"></span>
             <span class="hamburger-line-premium"></span>
@@ -256,8 +220,8 @@
   <div class="mobile-nav-premium fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl md:hidden" id="mobileMenu" style="z-index: 9999;">
     <!-- Header with close button -->
     <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700">
-      <span class="text-lg font-bold text-gray-800 dark:text-white">Menu</span>
-      <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-red-100 transition-all dark:bg-gray-700 dark:hover:bg-red-900" id="mobileMenuClose" aria-label="Menu sluiten">
+      <span class="text-lg font-bold text-gray-800 dark:text-white" data-i18n="nav.menu">Menu</span>
+      <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-red-100 transition-all dark:bg-gray-700 dark:hover:bg-red-900" id="mobileMenuClose" aria-label="Menu sluiten" data-i18n-aria="nav.menu.close">
         <i class="bi bi-x-lg text-xl text-gray-600 hover:text-red-600 dark:text-gray-300"></i>
       </button>
     </div>
@@ -268,38 +232,38 @@
         <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center dark:bg-primary-900/30">
           <i class="bi bi-house text-lg text-primary-600 dark:text-primary-400"></i>
         </div>
-        <span class="text-base font-semibold text-gray-800 dark:text-white">Home</span>
+        <span class="text-base font-semibold text-gray-800 dark:text-white" data-i18n="nav.home">Home</span>
       </a>
       <a href="#about" class="flex items-center gap-4 py-4 px-4 hover:bg-primary-50 rounded-xl transition-all dark:hover:bg-primary-900/20">
         <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center dark:bg-blue-900/30">
           <i class="bi bi-person text-lg text-blue-600 dark:text-blue-400"></i>
         </div>
-        <span class="text-base font-semibold text-gray-800 dark:text-white">Over Mij</span>
+        <span class="text-base font-semibold text-gray-800 dark:text-white" data-i18n="nav.about">Over Mij</span>
       </a>
       <a href="#skills" class="flex items-center gap-4 py-4 px-4 hover:bg-primary-50 rounded-xl transition-all dark:hover:bg-primary-900/20">
         <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center dark:bg-purple-900/30">
           <i class="bi bi-code-slash text-lg text-purple-600 dark:text-purple-400"></i>
         </div>
-        <span class="text-base font-semibold text-gray-800 dark:text-white">Vaardigheden</span>
+        <span class="text-base font-semibold text-gray-800 dark:text-white" data-i18n="nav.skills">Vaardigheden</span>
       </a>
       <a href="#projects" class="flex items-center gap-4 py-4 px-4 hover:bg-primary-50 rounded-xl transition-all dark:hover:bg-primary-900/20">
         <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center dark:bg-yellow-900/30">
           <i class="bi bi-folder text-lg text-yellow-600 dark:text-yellow-400"></i>
         </div>
-        <span class="text-base font-semibold text-gray-800 dark:text-white">Projecten</span>
+        <span class="text-base font-semibold text-gray-800 dark:text-white" data-i18n="nav.projects">Projecten</span>
       </a>
       <a href="#blog" class="flex items-center gap-4 py-4 px-4 hover:bg-primary-50 rounded-xl transition-all dark:hover:bg-primary-900/20">
         <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center dark:bg-pink-900/30">
           <i class="bi bi-journal-text text-lg text-pink-600 dark:text-pink-400"></i>
         </div>
-        <span class="text-base font-semibold text-gray-800 dark:text-white">Blog</span>
+        <span class="text-base font-semibold text-gray-800 dark:text-white" data-i18n="nav.blog">Blog</span>
       </a>
 
       <!-- CTA Button -->
       <div class="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
         <a href="#contact" class="flex items-center justify-center gap-3 w-full bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
           <i class="bi bi-chat-dots-fill text-xl"></i>
-          <span>Neem Contact Op</span>
+          <span data-i18n="nav.contact.cta">Neem Contact Op</span>
         </a>
       </div>
     </nav>
@@ -308,8 +272,10 @@
   <!-- Mobile Overlay -->
   <div class="fixed inset-0 bg-black/60 hidden md:hidden" id="mobileOverlay" style="z-index: 9998;"></div>
 
+  <main>
+
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden aurora-bg pt-20" aria-label="Introductie">
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden aurora-bg pt-28" aria-label="Introductie" data-i18n-aria="hero.section.aria">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden hero-background">
       <!-- Interactive Particles Canvas -->
@@ -338,41 +304,41 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
-            <span class="text-sm font-semibold tracking-wide">BESCHIKBAAR VOOR PROJECTEN</span>
+            <span class="text-sm font-semibold tracking-wide" data-i18n="hero.available">BESCHIKBAAR VOOR PROJECTEN</span>
           </div>
         </div>
 
         <!-- Main Heading - Modern Design -->
         <div class="mb-8 animate-slide-up">
-          <p class="text-xl md:text-2xl text-gray-300 font-light mb-4 typewriter-text" data-text="Hi, ik ben">
+          <p class="text-xl md:text-2xl text-gray-300 font-light mb-4 typewriter-text" data-text="Hi, ik ben" data-i18n-data-text="hero.greeting" data-i18n="hero.greeting">
             Hi, ik ben
           </p>
           <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-4 leading-none font-heading tracking-tighter">
             <span class="gradient-text-animated inline-block">
-              Kerim Örgü
+              Mevlüt Kerim Örgü
             </span>
           </h1>
           <div class="flex items-center justify-center gap-4 text-2xl md:text-4xl font-bold">
             <span class="inline-block w-16 h-1 bg-gradient-to-r from-primary-400 to-primary-600 neon-line"></span>
-            <span class="tracking-wider text-glow">FULL-STACK DEVELOPER</span>
+            <span class="tracking-wider text-glow" data-i18n="hero.role">FULL-STACK DEVELOPER</span>
             <span class="inline-block w-16 h-1 bg-gradient-to-r from-primary-600 to-primary-400 neon-line"></span>
           </div>
         </div>
 
         <!-- Value Proposition -->
-        <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up font-light" style="animation-delay: 0.2s;">
+        <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up font-light" style="animation-delay: 0.2s;" data-i18n-html="hero.description">
           Ik transformeer ideeën in krachtige, schaalbare webapplicaties met <span class="text-yellow-400 font-semibold">moderne technologieën</span> en <span class="text-yellow-400 font-semibold">creatieve oplossingen</span>
         </p>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style="animation-delay: 0.4s;">
           <a href="#projects" class="group relative magnetic-button btn-glow shine-effect bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300 flex items-center space-x-3">
-            <span class="relative z-10">Ontdek Mijn Werk</span>
+            <span class="relative z-10" data-i18n="hero.cta.work">Ontdek Mijn Werk</span>
             <i class="bi bi-arrow-right-circle-fill text-2xl group-hover:rotate-90 transition-transform duration-300"></i>
           </a>
           <a href="#contact" class="group magnetic-button glass-dark border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white hover:text-primary-700 transition-all duration-300 flex items-center space-x-3">
             <i class="bi bi-chat-dots-fill text-xl"></i>
-            <span>Start Gesprek</span>
+            <span data-i18n="hero.cta.chat">Start Gesprek</span>
           </a>
         </div>
 
@@ -380,24 +346,24 @@
         <div class="mt-16 flex items-center justify-center gap-8 text-gray-300 animate-slide-up" style="animation-delay: 0.6s;">
           <div class="text-center">
             <div class="text-3xl font-bold text-white">2+</div>
-            <div class="text-sm">Jaar Ervaring</div>
+            <div class="text-sm" data-i18n="hero.stats.experience">Jaar Ervaring</div>
           </div>
           <div class="w-px h-12 bg-white/20"></div>
           <div class="text-center">
             <div class="text-3xl font-bold text-white">4+</div>
-            <div class="text-sm">Projecten</div>
+            <div class="text-sm" data-i18n="hero.stats.projects">Projecten</div>
           </div>
           <div class="w-px h-12 bg-white/20"></div>
           <div class="text-center">
             <div class="text-3xl font-bold text-white">100%</div>
-            <div class="text-sm">Toewijding</div>
+            <div class="text-sm" data-i18n="hero.stats.dedication">Toewijding</div>
           </div>
         </div>
 
         <!-- Scroll Indicator -->
         <div class="mt-16 animate-bounce">
-          <a href="#about" class="inline-block text-white/60 hover:text-white transition-colors duration-300">
-            <i class="bi bi-chevron-down text-4xl"></i>
+          <a href="#about" class="inline-block text-white/60 hover:text-white transition-colors duration-300" aria-label="Scroll naar Over Mij sectie">
+            <i class="bi bi-chevron-down text-4xl" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -415,11 +381,11 @@
   <section id="about" class="py-20 bg-gray-50 reveal">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16 reveal-scale">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-heading tracking-tight">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-heading tracking-tight" data-i18n-html="about.title">
           Over <span class="gradient-text">Mij</span>
         </h2>
         <div class="w-24 h-1.5 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full mb-6"></div>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="about.subtitle">
           Leer meer over mijn achtergrond, passies en wat mij drijft als developer
         </p>
       </div>
@@ -430,25 +396,25 @@
           <div class="relative group mx-auto max-w-md float-animation">
             <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300 pulse-glow"></div>
             <div class="relative bg-white p-2 rounded-2xl shadow-xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-300">
-              <img src="./assets/images/profile-kerim.jpg" alt="Kerim Örgü - Full-Stack Developer" loading="lazy" class="w-full h-auto rounded-xl object-cover">
+              <img src="./assets/images/profile-kerim.webp" alt="Mevlüt Kerim Örgü - Full-Stack Developer" loading="lazy" class="w-full h-auto rounded-xl object-cover" width="408" height="612">
             </div>
           </div>
 
           <!-- Content Side -->
           <div class="space-y-6">
-          <h3 class="text-3xl font-bold text-gray-900">
-            Kerim Örgü – <span class="text-primary-600">Gedreven om te Groeien</span>
+          <h3 class="text-3xl font-bold text-gray-900" data-i18n-html="about.heading">
+            Mevlüt Kerim Örgü – <span class="text-primary-600">Gedreven om te Groeien</span>
           </h3>
 
-          <p class="text-gray-700 leading-relaxed text-lg">
+          <p class="text-gray-700 leading-relaxed text-lg" data-i18n-html="about.p1">
             Gedreven om praktijkervaring op te doen in softwareontwikkeling. Klaar om kennis van <span class="font-semibold text-primary-600">HTML, CSS, JavaScript, PHP</span> en <span class="font-semibold text-primary-600">databases</span> in te zetten bij echte projecten en verder te groeien met tools als <span class="font-semibold">Git</span> en moderne frameworks. Naast studie volop energie dankzij sport: dagelijks trainen, boksen en hardlopen zorgen voor <span class="font-semibold text-primary-600">discipline, focus en doorzettingsvermogen</span>.
           </p>
 
-          <p class="text-gray-700 leading-relaxed text-lg">
+          <p class="text-gray-700 leading-relaxed text-lg" data-i18n-html="about.p2">
             Leren door te doen spreekt mij het meest aan. Tijdens mijn opleiding maakte ik kennis met HTML, CSS, JavaScript, PHP en databases. Nu ligt de focus op <span class="font-semibold text-primary-600">ervaring opdoen binnen een team</span>, meewerken aan echte projecten en verdiepen in tools zoals Git en frameworks. Gemotiveerd en leergierig werk ik stap voor stap aan groei – zowel technisch als in samenwerking met anderen.
           </p>
 
-          <p class="text-gray-700 leading-relaxed text-lg font-semibold text-primary-700">
+          <p class="text-gray-700 leading-relaxed text-lg font-semibold text-primary-700" data-i18n="about.p3">
             Gemotiveerd om verder te groeien en continu stappen te zetten – zowel technisch als in samenwerking met anderen.
           </p>
 
@@ -456,15 +422,15 @@
           <div class="grid grid-cols-3 gap-4 py-6">
             <div class="text-center p-4 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl stagger-item hover-glow">
               <div class="text-3xl font-bold text-primary-700 counter-number" data-target="2">0</div>
-              <div class="text-sm text-gray-600 mt-1">Jaar Ervaring</div>
+              <div class="text-sm text-gray-600 mt-1" data-i18n="about.stats.experience">Jaar Ervaring</div>
             </div>
             <div class="text-center p-4 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl stagger-item hover-glow">
               <div class="text-3xl font-bold text-primary-700 counter-number" data-target="4">0</div>
-              <div class="text-sm text-gray-600 mt-1">Projecten</div>
+              <div class="text-sm text-gray-600 mt-1" data-i18n="about.stats.projects">Projecten</div>
             </div>
             <div class="text-center p-4 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl stagger-item hover-glow">
               <div class="text-3xl font-bold text-primary-700 counter-number" data-target="100">0</div>
-              <div class="text-sm text-gray-600 mt-1">Toegewijd</div>
+              <div class="text-sm text-gray-600 mt-1" data-i18n="about.stats.dedicated">Toegewijd</div>
             </div>
           </div>
 
@@ -472,11 +438,11 @@
           <div class="flex flex-wrap gap-4">
             <a href="#contact" class="btn-ripple shine-effect bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-4 rounded-xl hover:from-primary-600 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold inline-flex items-center">
               <i class="bi bi-envelope-fill mr-2"></i>
-              Neem Contact Op
+              <span data-i18n="about.cta.contact">Neem Contact Op</span>
             </a>
             <a href="./cv.html" class="btn-ripple bg-white border-2 border-primary-500 text-primary-700 px-8 py-4 rounded-xl hover:bg-primary-50 transition-all duration-300 font-semibold inline-flex items-center shadow-md hover:shadow-lg">
               <i class="bi bi-file-person mr-2"></i>
-              Bekijk CV
+              <span data-i18n="about.cta.cv">Bekijk CV</span>
             </a>
           </div>
         </div>
@@ -489,11 +455,11 @@
   <section id="skills" class="py-20 bg-white reveal">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16 reveal-scale">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-heading tracking-tight">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-heading tracking-tight" data-i18n-html="skills.title">
           Mijn <span class="gradient-text">Vaardigheden</span>
         </h2>
         <div class="w-24 h-1.5 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full mb-6"></div>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="skills.subtitle">
           Technologieën en tools waar ik mee werk om geweldige digitale ervaringen te creëren
         </p>
       </div>
@@ -503,12 +469,12 @@
         <div class="mb-16">
           <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
             <i class="bi bi-star-fill text-yellow-500 mr-2"></i>
-            Top Vaardigheden
-            <span class="block text-sm text-gray-600 font-normal mt-2">Hover voor meer details</span>
+            <span data-i18n="skills.top.title">Top Vaardigheden</span>
+            <span class="block text-sm text-gray-600 font-normal mt-2" data-i18n="skills.top.hint">Hover voor meer details</span>
           </h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             <!-- HTML/CSS Flip Card -->
-            <div tabindex="0" role="button" aria-label="HTML/CSS vaardigheid: 95% - Semantic HTML, Flexbox, Grid, Responsive Design" class="skill-flip-card fade-in-up">
+            <div tabindex="0" role="button" aria-label="HTML/CSS vaardigheid: 95% - Semantic HTML, Flexbox, Grid, Responsive Design" data-i18n-aria="skills.html.aria" class="skill-flip-card fade-in-up">
               <div class="skill-flip-inner">
                 <div class="skill-flip-front">
                   <i class="bi bi-filetype-html text-5xl text-primary-600 mb-3"></i>
@@ -517,14 +483,14 @@
                 </div>
                 <div class="skill-flip-back">
                   <i class="bi bi-check-circle-fill text-4xl mb-3"></i>
-                  <h4 class="font-bold text-lg mb-2">HTML/CSS Expert</h4>
-                  <p class="text-sm text-center">Semantic HTML, Flexbox, Grid, Responsive Design</p>
+                  <h4 class="font-bold text-lg mb-2" data-i18n="skills.html.expert.title">HTML/CSS Expert</h4>
+                  <p class="text-sm text-center" data-i18n="skills.html.expert.desc">Semantic HTML, Flexbox, Grid, Responsive Design</p>
                 </div>
               </div>
             </div>
 
             <!-- JavaScript Flip Card -->
-            <div tabindex="0" role="button" aria-label="JavaScript vaardigheid: 90% - ES6+, DOM, Async/Await, APIs" class="skill-flip-card fade-in-up-delay-1">
+            <div tabindex="0" role="button" aria-label="JavaScript vaardigheid: 90% - ES6+, DOM, Async/Await, APIs" data-i18n-aria="skills.js.aria" class="skill-flip-card fade-in-up-delay-1">
               <div class="skill-flip-inner">
                 <div class="skill-flip-front">
                   <i class="bi bi-filetype-js text-5xl text-primary-600 mb-3"></i>
@@ -533,14 +499,14 @@
                 </div>
                 <div class="skill-flip-back">
                   <i class="bi bi-lightning-charge-fill text-4xl mb-3"></i>
-                  <h4 class="font-bold text-lg mb-2">JavaScript Pro</h4>
-                  <p class="text-sm text-center">ES6+, DOM, Async/Await, APIs</p>
+                  <h4 class="font-bold text-lg mb-2" data-i18n="skills.js.pro.title">JavaScript Pro</h4>
+                  <p class="text-sm text-center" data-i18n="skills.js.pro.desc">ES6+, DOM, Async/Await, APIs</p>
                 </div>
               </div>
             </div>
 
             <!-- Tailwind Flip Card -->
-            <div tabindex="0" role="button" aria-label="Tailwind CSS vaardigheid: 92% - Utility-First, Custom Config, Plugins" class="skill-flip-card fade-in-up-delay-2">
+            <div tabindex="0" role="button" aria-label="Tailwind CSS vaardigheid: 92% - Utility-First, Custom Config, Plugins" data-i18n-aria="skills.tailwind.aria" class="skill-flip-card fade-in-up-delay-2">
               <div class="skill-flip-inner">
                 <div class="skill-flip-front">
                   <i class="bi bi-palette-fill text-5xl text-primary-600 mb-3"></i>
@@ -549,14 +515,14 @@
                 </div>
                 <div class="skill-flip-back">
                   <i class="bi bi-brush-fill text-4xl mb-3"></i>
-                  <h4 class="font-bold text-lg mb-2">Tailwind Master</h4>
-                  <p class="text-sm text-center">Utility-First, Custom Config, Plugins</p>
+                  <h4 class="font-bold text-lg mb-2" data-i18n="skills.tailwind.master.title">Tailwind Master</h4>
+                  <p class="text-sm text-center" data-i18n="skills.tailwind.master.desc">Utility-First, Custom Config, Plugins</p>
                 </div>
               </div>
             </div>
 
             <!-- PHP/MySQL Flip Card -->
-            <div tabindex="0" role="button" aria-label="PHP/MySQL vaardigheid: 85% - Backend Development, Database Design" class="skill-flip-card fade-in-up-delay-3">
+            <div tabindex="0" role="button" aria-label="PHP/MySQL vaardigheid: 85% - Backend Development, Database Design" data-i18n-aria="skills.phpmysql.aria" class="skill-flip-card fade-in-up-delay-3">
               <div class="skill-flip-inner">
                 <div class="skill-flip-front">
                   <i class="bi bi-database-fill text-5xl text-primary-600 mb-3"></i>
@@ -565,8 +531,8 @@
                 </div>
                 <div class="skill-flip-back">
                   <i class="bi bi-server text-4xl mb-3"></i>
-                  <h4 class="font-bold text-lg mb-2">Backend Dev</h4>
-                  <p class="text-sm text-center">CRUD, Authentication, Database Design</p>
+                  <h4 class="font-bold text-lg mb-2" data-i18n="skills.phpmysql.dev.title">Backend Dev</h4>
+                  <p class="text-sm text-center" data-i18n="skills.phpmysql.dev.desc">CRUD, Authentication, Database Design</p>
                 </div>
               </div>
             </div>
@@ -577,7 +543,7 @@
         <div class="mb-12">
           <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <i class="bi bi-code-slash text-primary-600 mr-3"></i>
-            Frontend Development
+            <span data-i18n="skills.frontend">Frontend Development</span>
           </h3>
           <div class="grid md:grid-cols-2 gap-6">
             <!-- HTML/CSS -->
@@ -630,7 +596,7 @@
         <div class="mb-12">
           <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <i class="bi bi-server text-primary-600 mr-3"></i>
-            Backend Development
+            <span data-i18n="skills.backend">Backend Development</span>
           </h3>
           <div class="grid md:grid-cols-2 gap-6">
             <!-- Node.js -->
@@ -683,7 +649,7 @@
         <div>
           <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <i class="bi bi-palette text-primary-600 mr-3"></i>
-            Design & Tools
+            <span data-i18n="skills.design">Design & Tools</span>
           </h3>
           <div class="grid md:grid-cols-2 gap-6">
             <!-- UI/UX Design -->
@@ -722,8 +688,8 @@
     <div class="container mx-auto px-4 relative z-10">
       <!-- Section Header -->
       <div class="text-center mb-20 reveal-scale projects-header">
-        <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4 tracking-wide">PORTFOLIO</span>
-        <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-heading tracking-tight">
+        <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-4 tracking-wide" data-i18n="projects.badge">PORTFOLIO</span>
+        <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-heading tracking-tight" data-i18n-html="projects.title">
           Mijn <span class="gradient-text">Projecten</span>
         </h2>
         <div class="flex items-center justify-center gap-2 mb-6">
@@ -731,7 +697,7 @@
           <div class="w-24 h-1.5 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full neon-line"></div>
           <div class="w-12 h-1.5 bg-primary-300 rounded-full"></div>
         </div>
-        <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" data-i18n="projects.subtitle">
           Een selectie van mijn recente werk en projecten waar ik trots op ben
         </p>
       </div>
@@ -747,7 +713,7 @@
               <div class="project-image-container h-80 md:h-[450px]">
                 <img src="./assets/images/freshgen-hero.webp" alt="FreshGen Project - Modern kookplatform voor Gen Z" loading="lazy" class="project-image">
                 <div class="project-badge project-badge-featured">
-                  <i class="bi bi-star-fill mr-1"></i> Featured
+                  <i class="bi bi-star-fill mr-1"></i> <span data-i18n="projects.badge.featured">Featured</span>
                 </div>
               </div>
 
@@ -756,10 +722,10 @@
                 <div>
                   <div class="project-category">
                     <i class="bi bi-people"></i>
-                    <span>FreshGen • Gen Z Food Startup</span>
+                    <span data-i18n="projects.freshgen.category">FreshGen • Gen Z Food Startup</span>
                   </div>
-                  <h3 class="project-title">FreshGen Kookplatform</h3>
-                  <p class="project-description">
+                  <h3 class="project-title" data-i18n="projects.freshgen.title">FreshGen Kookplatform</h3>
+                  <p class="project-description" data-i18n="projects.freshgen.desc">
                     Een modern platform dat snelle, gezonde en betaalbare recepten toegankelijk maakt voor Gen Z. Met focus op eenvoud, snelheid en een geweldige gebruikservaring.
                   </p>
 
@@ -767,15 +733,15 @@
                   <div class="feature-list">
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Mobile-first responsive design</span>
+                      <span data-i18n="projects.freshgen.f1">Mobile-first responsive design</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Instant search functionaliteit</span>
+                      <span data-i18n="projects.freshgen.f2">Instant search functionaliteit</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Speelse micro-animaties</span>
+                      <span data-i18n="projects.freshgen.f3">Speelse micro-animaties</span>
                     </div>
                   </div>
 
@@ -790,12 +756,12 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap gap-3">
-                  <a href="./projects/freshgen.html" class="project-cta" aria-label="Bekijk FreshGen project details">
-                    <span>Bekijk Details</span>
+                  <a href="./projects/freshgen.html" class="project-cta" aria-label="Bekijk FreshGen project details" data-i18n-aria="projects.freshgen.aria.details">
+                    <span data-i18n="projects.btn.details">Bekijk Details</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
-                  <a href="https://100199.stu.sd-lab.nl/FreshGen/index.php" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk FreshGen live demo">
-                    <span>Live Demo</span>
+                  <a href="https://100199.stu.sd-lab.nl/FreshGen/index.php" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk FreshGen live demo" data-i18n-aria="projects.freshgen.aria.demo">
+                    <span data-i18n="projects.btn.demo">Live Demo</span>
                     <i class="bi bi-box-arrow-up-right"></i>
                   </a>
                 </div>
@@ -815,10 +781,10 @@
                 <div>
                   <div class="project-category">
                     <i class="bi bi-building"></i>
-                    <span>King Airconditioning • Dienstverlener</span>
+                    <span data-i18n="projects.king.category">King Airconditioning • Dienstverlener</span>
                   </div>
-                  <h3 class="project-title">King Airconditioning Website</h3>
-                  <p class="project-description">
+                  <h3 class="project-title" data-i18n="projects.king.title">King Airconditioning Website</h3>
+                  <p class="project-description" data-i18n="projects.king.desc">
                     Een professionele zakelijke website voor een airconditioning dienstverlener. Moderne uitstraling met focus op vertrouwen en conversie.
                   </p>
 
@@ -826,15 +792,15 @@
                   <div class="feature-list">
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Heldere service presentatie</span>
+                      <span data-i18n="projects.king.f1">Heldere service presentatie</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Eenvoudige offerte-aanvraag</span>
+                      <span data-i18n="projects.king.f2">Eenvoudige offerte-aanvraag</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Trust indicators & testimonials</span>
+                      <span data-i18n="projects.king.f3">Trust indicators & testimonials</span>
                     </div>
                   </div>
 
@@ -848,12 +814,12 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap gap-3">
-                  <a href="./projects/king-airconditioning.html" class="project-cta" aria-label="Bekijk King Airconditioning project details">
-                    <span>Bekijk Details</span>
+                  <a href="./projects/king-airconditioning.html" class="project-cta" aria-label="Bekijk King Airconditioning project details" data-i18n-aria="projects.king.aria.details">
+                    <span data-i18n="projects.btn.details">Bekijk Details</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
-                  <a href="https://kingairconditioning.nl/" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk King Airconditioning live website">
-                    <span>Live Demo</span>
+                  <a href="https://kingairconditioning.nl/" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk King Airconditioning live website" data-i18n-aria="projects.king.aria.demo">
+                    <span data-i18n="projects.btn.demo">Live Demo</span>
                     <i class="bi bi-box-arrow-up-right"></i>
                   </a>
                 </div>
@@ -863,7 +829,7 @@
               <div class="project-image-container h-80 md:h-[450px] order-1 md:order-2">
                 <img src="./assets/images/king-hero.webp" alt="King Airconditioning - Professionele zakelijke website" loading="lazy" class="project-image">
                 <div class="project-badge project-badge-business">
-                  <i class="bi bi-briefcase-fill mr-1"></i> Business
+                  <i class="bi bi-briefcase-fill mr-1"></i> <span data-i18n="projects.badge.business">Business</span>
                 </div>
               </div>
             </div>
@@ -880,7 +846,7 @@
               <div class="project-image-container h-80 md:h-[450px]">
                 <img src="./assets/images/ytech-hero.webp" alt="YTech Elektrotechniek - Professionele zakelijke website" loading="lazy" class="project-image">
                 <div class="project-badge project-badge-business">
-                  <i class="bi bi-briefcase-fill mr-1"></i> Business
+                  <i class="bi bi-briefcase-fill mr-1"></i> <span data-i18n="projects.badge.business">Business</span>
                 </div>
               </div>
 
@@ -889,10 +855,10 @@
                 <div>
                   <div class="project-category">
                     <i class="bi bi-lightning-charge"></i>
-                    <span>YTech • Elektrotechniek</span>
+                    <span data-i18n="projects.ytech.category">YTech • Elektrotechniek</span>
                   </div>
-                  <h3 class="project-title">YTech Elektrotechniek Website</h3>
-                  <p class="project-description">
+                  <h3 class="project-title" data-i18n="projects.ytech.title">YTech Elektrotechniek Website</h3>
+                  <p class="project-description" data-i18n="projects.ytech.desc">
                     Een moderne, professionele website voor een elektrotechnisch installatiebedrijf. Geoptimaliseerd voor SEO met Schema.org markup en een strak responsive design.
                   </p>
 
@@ -900,15 +866,15 @@
                   <div class="feature-list">
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>SEO-geoptimaliseerd met Schema.org</span>
+                      <span data-i18n="projects.ytech.f1">SEO-geoptimaliseerd met Schema.org</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Modern responsive design</span>
+                      <span data-i18n="projects.ytech.f2">Modern responsive design</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Service categorieën & projectgalerij</span>
+                      <span data-i18n="projects.ytech.f3">Service categorieën & projectgalerij</span>
                     </div>
                   </div>
 
@@ -923,12 +889,12 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap gap-3">
-                  <a href="./projects/ytech.html" class="project-cta" aria-label="Bekijk YTech project details">
-                    <span>Bekijk Details</span>
+                  <a href="./projects/ytech.html" class="project-cta" aria-label="Bekijk YTech project details" data-i18n-aria="projects.ytech.aria.details">
+                    <span data-i18n="projects.btn.details">Bekijk Details</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
-                  <a href="https://ytech.nl" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk YTech live website">
-                    <span>Live Demo</span>
+                  <a href="https://ytech.nl" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk YTech live website" data-i18n-aria="projects.ytech.aria.demo">
+                    <span data-i18n="projects.btn.demo">Live Demo</span>
                     <i class="bi bi-box-arrow-up-right"></i>
                   </a>
                 </div>
@@ -948,10 +914,10 @@
                 <div>
                   <div class="project-category">
                     <i class="bi bi-shop"></i>
-                    <span>Piccobello Snacks • Catering</span>
+                    <span data-i18n="projects.piccobello.category">Piccobello Snacks • Catering</span>
                   </div>
-                  <h3 class="project-title">Piccobello Snacks Website</h3>
-                  <p class="project-description">
+                  <h3 class="project-title" data-i18n="projects.piccobello.title">Piccobello Snacks Website</h3>
+                  <p class="project-description" data-i18n="projects.piccobello.desc">
                     Een aantrekkelijke website voor een mobiele snackbar-service. Complete presentatie van pakketten, werkgebied en FAQ sectie voor klanten.
                   </p>
 
@@ -959,15 +925,15 @@
                   <div class="feature-list">
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Duidelijke pakket- en prijsoverzichten</span>
+                      <span data-i18n="projects.piccobello.f1">Duidelijke pakket- en prijsoverzichten</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Interactieve FAQ sectie</span>
+                      <span data-i18n="projects.piccobello.f2">Interactieve FAQ sectie</span>
                     </div>
                     <div class="feature-item">
                       <i class="bi bi-check-circle-fill"></i>
-                      <span>Offerte aanvraag functionaliteit</span>
+                      <span data-i18n="projects.piccobello.f3">Offerte aanvraag functionaliteit</span>
                     </div>
                   </div>
 
@@ -981,12 +947,12 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap gap-3">
-                  <a href="./projects/piccobello-snacks.html" class="project-cta" aria-label="Bekijk Piccobello Snacks project details">
-                    <span>Bekijk Details</span>
+                  <a href="./projects/piccobello-snacks.html" class="project-cta" aria-label="Bekijk Piccobello Snacks project details" data-i18n-aria="projects.piccobello.aria.details">
+                    <span data-i18n="projects.btn.details">Bekijk Details</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
-                  <a href="https://piccobellosnacks.nl" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk Piccobello Snacks live website">
-                    <span>Live Demo</span>
+                  <a href="https://piccobellosnacks.nl" target="_blank" rel="noopener noreferrer" class="project-cta-secondary" aria-label="Bekijk Piccobello Snacks live website" data-i18n-aria="projects.piccobello.aria.demo">
+                    <span data-i18n="projects.btn.demo">Live Demo</span>
                     <i class="bi bi-box-arrow-up-right"></i>
                   </a>
                 </div>
@@ -996,7 +962,7 @@
               <div class="project-image-container h-80 md:h-[450px] order-1 md:order-2">
                 <img src="./assets/images/piccobello-hero.webp" alt="Piccobello Snacks - Mobiele snackbar website" loading="lazy" class="project-image">
                 <div class="project-badge project-badge-business">
-                  <i class="bi bi-briefcase-fill mr-1"></i> Business
+                  <i class="bi bi-briefcase-fill mr-1"></i> <span data-i18n="projects.badge.business">Business</span>
                 </div>
               </div>
             </div>
@@ -1007,9 +973,9 @@
       <!-- CTA -->
       <div class="text-center mt-20">
         <div class="inline-block p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-100">
-          <p class="text-gray-700 text-xl font-medium mb-6">Interesse in samenwerken aan een project?</p>
+          <p class="text-gray-700 text-xl font-medium mb-6" data-i18n="projects.cta.text">Interesse in samenwerken aan een project?</p>
           <a href="#contact" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary-500 to-primary-700 text-white px-10 py-4 rounded-full hover:from-primary-600 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 font-bold text-lg group">
-            <span>Neem Contact Op</span>
+            <span data-i18n="projects.cta.button">Neem Contact Op</span>
             <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
           </a>
         </div>
@@ -1026,8 +992,8 @@
     <div class="container mx-auto px-4 relative z-10">
       <!-- Section Header -->
       <div class="text-center mb-16 md:mb-20 reveal-scale">
-        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4 tracking-wide">BLOG</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4 tracking-wide" data-i18n="blog.badge">BLOG</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6" data-i18n-html="blog.title">
           Blog & <span class="gradient-text">Artikelen</span>
         </h2>
         <div class="flex items-center justify-center gap-2 mb-4 md:mb-6">
@@ -1035,7 +1001,7 @@
           <div class="w-16 md:w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
           <div class="w-8 md:w-12 h-1.5 bg-purple-300 rounded-full"></div>
         </div>
-        <p class="text-gray-600 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4">
+        <p class="text-gray-600 text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4" data-i18n="blog.subtitle">
           Mijn gedachten over webdevelopment, nieuwe technologieën en lessen uit de praktijk
         </p>
       </div>
@@ -1049,7 +1015,7 @@
               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               <i class="bi bi-code-slash text-5xl md:text-6xl text-white/80 group-hover:scale-110 transition-transform duration-500"></i>
               <div class="absolute top-3 left-3 md:top-4 md:left-4">
-                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="blog.cat.css">
                   CSS Framework
                 </span>
               </div>
@@ -1058,22 +1024,22 @@
               <div class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-500 mb-3">
                 <span class="flex items-center gap-1">
                   <i class="bi bi-calendar3"></i>
-                  December 2025
+                  <span data-i18n="blog.post1.date">December 2025</span>
                 </span>
                 <span class="hidden sm:inline">•</span>
                 <span class="flex items-center gap-1">
                   <i class="bi bi-clock"></i>
-                  5 min
+                  <span data-i18n="blog.post1.readtime">5 min</span>
                 </span>
               </div>
-              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
+              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2" data-i18n="blog.post1.title">
                 Waarom Tailwind CSS mijn go-to framework is
               </h3>
-              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3">
+              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3" data-i18n="blog.post1.desc">
                 Na het werken met Bootstrap en custom CSS ben ik overgestapt naar Tailwind. Hier deel ik waarom utility-first CSS mijn workflow heeft verbeterd.
               </p>
               <span class="inline-flex items-center text-primary-600 font-semibold text-sm md:text-base group-hover:gap-2 transition-all">
-                Lees meer <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
+                <span data-i18n="blog.readmore">Lees meer</span> <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
               </span>
             </div>
           </article>
@@ -1086,7 +1052,7 @@
               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               <i class="bi bi-database text-5xl md:text-6xl text-white/80 group-hover:scale-110 transition-transform duration-500"></i>
               <div class="absolute top-3 left-3 md:top-4 md:left-4">
-                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="blog.cat.backend">
                   Backend
                 </span>
               </div>
@@ -1095,22 +1061,22 @@
               <div class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-500 mb-3">
                 <span class="flex items-center gap-1">
                   <i class="bi bi-calendar3"></i>
-                  November 2025
+                  <span data-i18n="blog.post2.date">November 2025</span>
                 </span>
                 <span class="hidden sm:inline">•</span>
                 <span class="flex items-center gap-1">
                   <i class="bi bi-clock"></i>
-                  7 min
+                  <span data-i18n="blog.post2.readtime">7 min</span>
                 </span>
               </div>
-              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
+              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2" data-i18n="blog.post2.title">
                 PHP & MySQL: Best practices voor beginners
               </h3>
-              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3">
+              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3" data-i18n="blog.post2.desc">
                 Van prepared statements tot database normalisatie - de belangrijkste lessen die ik heb geleerd tijdens mijn opleiding en projecten.
               </p>
               <span class="inline-flex items-center text-primary-600 font-semibold text-sm md:text-base group-hover:gap-2 transition-all">
-                Lees meer <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
+                <span data-i18n="blog.readmore">Lees meer</span> <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
               </span>
             </div>
           </article>
@@ -1123,7 +1089,7 @@
               <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               <i class="bi bi-git text-5xl md:text-6xl text-white/80 group-hover:scale-110 transition-transform duration-500"></i>
               <div class="absolute top-3 left-3 md:top-4 md:left-4">
-                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span class="blog-category-badge bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full" data-i18n="blog.cat.versioncontrol">
                   Version Control
                 </span>
               </div>
@@ -1132,22 +1098,22 @@
               <div class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-500 mb-3">
                 <span class="flex items-center gap-1">
                   <i class="bi bi-calendar3"></i>
-                  Oktober 2025
+                  <span data-i18n="blog.post3.date">Oktober 2025</span>
                 </span>
                 <span class="hidden sm:inline">•</span>
                 <span class="flex items-center gap-1">
                   <i class="bi bi-clock"></i>
-                  4 min
+                  <span data-i18n="blog.post3.readtime">4 min</span>
                 </span>
               </div>
-              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
+              <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:text-primary-600 transition-colors line-clamp-2" data-i18n="blog.post3.title">
                 Git workflow tips voor solo developers
               </h3>
-              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3">
+              <p class="text-gray-600 text-sm md:text-base mb-4 line-clamp-2 md:line-clamp-3" data-i18n="blog.post3.desc">
                 Ook als je alleen werkt is een goede Git workflow essentieel. Mijn tips voor branches, commits en het organiseren van je code.
               </p>
               <span class="inline-flex items-center text-primary-600 font-semibold text-sm md:text-base group-hover:gap-2 transition-all">
-                Lees meer <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
+                <span data-i18n="blog.readmore">Lees meer</span> <i class="bi bi-arrow-right ml-1 group-hover:translate-x-2 transition-transform duration-300"></i>
               </span>
             </div>
           </article>
@@ -1158,7 +1124,7 @@
       <div class="text-center mt-12 md:mt-16">
         <a href="./blog/" class="inline-flex items-center gap-2 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-primary-50 hover:to-primary-100 text-gray-700 hover:text-primary-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 group">
           <i class="bi bi-grid-3x3-gap text-lg"></i>
-          <span>Bekijk alle artikelen</span>
+          <span data-i18n="blog.viewall">Bekijk alle artikelen</span>
           <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
         </a>
       </div>
@@ -1175,8 +1141,8 @@
     <div class="container mx-auto px-4 relative z-10">
       <!-- Section Header -->
       <div class="text-center mb-16 reveal-scale">
-        <span class="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold mb-4 tracking-wide">CONTACT</span>
-        <h2 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 font-heading tracking-tight">
+        <span class="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold mb-4 tracking-wide" data-i18n="contact.badge">CONTACT</span>
+        <h2 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 font-heading tracking-tight" data-i18n-html="contact.title">
           Laten We <span class="gradient-text">Samenwerken</span>
         </h2>
         <div class="flex items-center justify-center gap-2 mb-6">
@@ -1184,7 +1150,7 @@
           <div class="w-24 h-1.5 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full"></div>
           <div class="w-12 h-1.5 bg-primary-300 dark:bg-primary-700 rounded-full"></div>
         </div>
-        <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" data-i18n="contact.subtitle">
           Heb je een project in gedachten of wil je gewoon even kennismaken? Ik hoor graag van je!
         </p>
       </div>
@@ -1205,11 +1171,11 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-green-400"></span>
                   </span>
-                  <span class="text-white text-sm font-medium">Beschikbaar voor projecten</span>
+                  <span class="text-white text-sm font-medium" data-i18n="contact.available">Beschikbaar voor projecten</span>
                 </div>
 
-                <h3 class="text-2xl font-bold text-white mb-2">Neem Contact Op</h3>
-                <p class="text-primary-100 mb-8">Ik reageer meestal binnen 24 uur</p>
+                <h3 class="text-2xl font-bold text-white mb-2" data-i18n="contact.heading">Neem Contact Op</h3>
+                <p class="text-primary-100 mb-8" data-i18n="contact.response">Ik reageer meestal binnen 24 uur</p>
 
                 <div class="space-y-6">
                   <!-- Email -->
@@ -1218,7 +1184,7 @@
                       <i class="bi bi-envelope-fill text-xl"></i>
                     </div>
                     <div>
-                      <p class="text-primary-200 text-sm">Email</p>
+                      <p class="text-primary-200 text-sm" data-i18n="contact.email.label">Email</p>
                       <p class="text-white font-semibold">mkorgu@gmail.com</p>
                     </div>
                     <i class="bi bi-arrow-right text-white/50 ml-auto group-hover:translate-x-1 transition-transform"></i>
@@ -1230,8 +1196,8 @@
                       <i class="bi bi-geo-alt-fill text-xl"></i>
                     </div>
                     <div>
-                      <p class="text-primary-200 text-sm">Locatie</p>
-                      <p class="text-white font-semibold">Schiedam, Nederland</p>
+                      <p class="text-primary-200 text-sm" data-i18n="contact.location.label">Locatie</p>
+                      <p class="text-white font-semibold" data-i18n="contact.location.value">Schiedam, Nederland</p>
                     </div>
                   </div>
 
@@ -1241,15 +1207,15 @@
                       <i class="bi bi-clock-fill text-xl"></i>
                     </div>
                     <div>
-                      <p class="text-primary-200 text-sm">Reactietijd</p>
-                      <p class="text-white font-semibold">Binnen 24 uur</p>
+                      <p class="text-primary-200 text-sm" data-i18n="contact.responsetime.label">Reactietijd</p>
+                      <p class="text-white font-semibold" data-i18n="contact.responsetime.value">Binnen 24 uur</p>
                     </div>
                   </div>
                 </div>
 
                 <!-- Social Links -->
                 <div class="mt-8 pt-6 border-t border-white/20">
-                  <p class="text-primary-200 text-sm mb-4">Volg mij op social media</p>
+                  <p class="text-primary-200 text-sm mb-4" data-i18n="contact.social.follow">Volg mij op social media</p>
                   <div class="flex gap-3">
                     <a href="https://www.linkedin.com/in/mkerrie/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white hover:bg-white hover:text-primary-600 transition-all hover:scale-110" aria-label="LinkedIn">
                       <i class="bi bi-linkedin text-lg"></i>
@@ -1274,43 +1240,43 @@
                   <i class="bi bi-chat-dots-fill text-xl text-primary-600 dark:text-primary-400"></i>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 dark:text-white">Stuur een bericht</h3>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm">Vul het formulier in en ik neem contact op</p>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="contact.form.title">Stuur een bericht</h3>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm" data-i18n="contact.form.subtitle">Vul het formulier in en ik neem contact op</p>
                 </div>
               </div>
 
-              <form id="contactForm" class="space-y-6" aria-label="Contact formulier">
+              <form id="contactForm" class="space-y-6" aria-label="Contact formulier" data-i18n-aria="contact.form.aria">
                 <!-- Name & Email Row -->
                 <div class="grid md:grid-cols-2 gap-6">
                   <!-- Name -->
                   <div class="group">
                     <label for="name" class="block text-gray-700 dark:text-gray-200 font-semibold mb-2 text-sm">
-                      <i class="bi bi-person mr-2 text-primary-500 dark:text-primary-400"></i>Naam *
+                      <i class="bi bi-person mr-2 text-primary-500 dark:text-primary-400"></i><span data-i18n="contact.form.name.label">Naam *</span>
                     </label>
                     <input type="text" id="name" name="name" required autocomplete="name"
                       class="w-full px-4 py-4 bg-gray-50 dark:bg-gray-700 border-2 border-gray-100 dark:border-gray-600 rounded-xl focus:border-primary-500 focus:bg-white dark:focus:bg-gray-600 focus:outline-none transition-all duration-300 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400"
-                      placeholder="Jouw naam">
+                      placeholder="Jouw naam" data-i18n-placeholder="contact.form.name.placeholder">
                   </div>
 
                   <!-- Email -->
                   <div class="group">
                     <label for="email" class="block text-gray-700 dark:text-gray-200 font-semibold mb-2 text-sm">
-                      <i class="bi bi-envelope mr-2 text-primary-500 dark:text-primary-400"></i>Email *
+                      <i class="bi bi-envelope mr-2 text-primary-500 dark:text-primary-400"></i><span data-i18n="contact.form.email.label">Email *</span>
                     </label>
                     <input type="email" id="email" name="email" required autocomplete="email"
                       class="w-full px-4 py-4 bg-gray-50 dark:bg-gray-700 border-2 border-gray-100 dark:border-gray-600 rounded-xl focus:border-primary-500 focus:bg-white dark:focus:bg-gray-600 focus:outline-none transition-all duration-300 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400"
-                      placeholder="jouw@email.nl">
+                      placeholder="jouw@email.nl" data-i18n-placeholder="contact.form.email.placeholder">
                   </div>
                 </div>
 
                 <!-- Message -->
                 <div class="group">
                   <label for="message" class="block text-gray-700 dark:text-gray-200 font-semibold mb-2 text-sm">
-                    <i class="bi bi-chat-left-text mr-2 text-primary-500 dark:text-primary-400"></i>Bericht *
+                    <i class="bi bi-chat-left-text mr-2 text-primary-500 dark:text-primary-400"></i><span data-i18n="contact.form.message.label">Bericht *</span>
                   </label>
                   <textarea id="message" name="message" rows="5" required
                     class="w-full px-4 py-4 bg-gray-50 dark:bg-gray-700 border-2 border-gray-100 dark:border-gray-600 rounded-xl focus:border-primary-500 focus:bg-white dark:focus:bg-gray-600 focus:outline-none transition-all duration-300 resize-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400"
-                    placeholder="Vertel me over je project of vraag..."></textarea>
+                    placeholder="Vertel me over je project of vraag..." data-i18n-placeholder="contact.form.message.placeholder"></textarea>
                 </div>
 
                 <!-- Honeypot anti-spam (hidden from users) -->
@@ -1322,7 +1288,7 @@
                 <!-- Submit Button -->
                 <button type="submit" class="w-full group relative overflow-hidden bg-gradient-to-r from-primary-500 to-primary-700 text-white px-8 py-5 rounded-xl hover:from-primary-600 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 font-bold text-lg">
                   <span id="submitText" class="flex items-center justify-center gap-3">
-                    <span>Verstuur Bericht</span>
+                    <span data-i18n="contact.form.submit">Verstuur Bericht</span>
                     <i class="bi bi-send-fill group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                   </span>
                 </button>
@@ -1333,7 +1299,7 @@
                 <!-- Privacy Note -->
                 <p class="text-center text-gray-400 dark:text-gray-500 text-sm">
                   <i class="bi bi-shield-check mr-1"></i>
-                  Je gegevens worden veilig verwerkt en nooit gedeeld met derden
+                  <span data-i18n="contact.form.privacy">Je gegevens worden veilig verwerkt en nooit gedeeld met derden</span>
                 </p>
               </form>
             </div>
@@ -1343,12 +1309,14 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900 text-white py-16 overflow-hidden">
     <!-- Decorative Elements -->
     <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
+      <div class="absolute top-0 left-0 w-96 h-96 bg-primary-900 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-900 rounded-full blur-3xl"></div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
@@ -1357,13 +1325,13 @@
 
         <!-- Logo -->
         <div class="transform hover:scale-110 transition-all duration-300">
-          <img src="./assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="h-24 w-auto">
+          <img src="./assets/images/MKLogo-removebg-preview.webp" alt="MK Logo" class="h-24 w-auto" width="144" height="96">
         </div>
 
         <!-- Tagline -->
         <div class="max-w-md">
-          <h3 class="text-2xl font-bold mb-2 gradient-text">Kerim Örgü</h3>
-          <p class="text-gray-400">Full-Stack Developer | Creatieve Weboplossingen</p>
+          <h3 class="text-2xl font-bold mb-2 gradient-text">Mevlüt Kerim Örgü</h3>
+          <p class="text-gray-300" data-i18n="footer.tagline">Full-Stack Developer | Creatieve Weboplossingen</p>
         </div>
 
         <!-- Social Links -->
@@ -1387,33 +1355,33 @@
 
         <!-- Quick Links -->
         <div class="flex flex-wrap justify-center gap-6 text-sm">
-          <a href="#home" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Home
+          <a href="#home" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.home">Home</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
-          <span class="text-gray-600">•</span>
-          <a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Over Mij
+          <span class="text-gray-500">•</span>
+          <a href="#about" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.about">Over Mij</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
-          <span class="text-gray-600">•</span>
-          <a href="#skills" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Vaardigheden
+          <span class="text-gray-500">•</span>
+          <a href="#skills" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.skills">Vaardigheden</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
-          <span class="text-gray-600">•</span>
-          <a href="#projects" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Projecten
+          <span class="text-gray-500">•</span>
+          <a href="#projects" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.projects">Projecten</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
-          <span class="text-gray-600">•</span>
-          <a href="#blog" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Blog
+          <span class="text-gray-500">•</span>
+          <a href="#blog" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.blog">Blog</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
-          <span class="text-gray-600">•</span>
-          <a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors duration-300 relative group">
-            Contact
+          <span class="text-gray-500">•</span>
+          <a href="#contact" class="text-white hover:text-primary-400 transition-colors duration-300 relative group">
+            <span data-i18n="nav.contact">Contact</span>
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
           </a>
         </div>
@@ -1423,14 +1391,14 @@
 
         <!-- Copyright & Legal -->
         <div class="text-center space-y-3">
-          <p class="text-gray-500 text-sm">
-            © <span id="currentYear"></span> Kerim Örgü - Full-Stack Developer
+          <p class="text-gray-300 text-sm">
+            © <span id="currentYear"></span> Mevlüt Kerim Örgü - Full-Stack Developer
           </p>
 
-          <div class="flex items-center justify-center gap-2 text-xs text-gray-600">
-            <span>Ontworpen en gebouwd met</span>
+          <div class="flex items-center justify-center gap-2 text-xs text-gray-300">
+            <span data-i18n="footer.designed">Ontworpen en gebouwd met</span>
             <i class="bi bi-code-slash text-primary-500"></i>
-            <span>in Schiedam</span>
+            <span data-i18n="footer.location">in Schiedam</span>
           </div>
         </div>
 
@@ -1439,11 +1407,13 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-primary-500 to-primary-700 text-white rounded-full shadow-lg hover:from-primary-600 hover:to-primary-800 transform hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-40" aria-label="Terug naar boven">
+  <button id="backToTop" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-primary-500 to-primary-700 text-white rounded-full shadow-lg hover:from-primary-600 hover:to-primary-800 transform hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-40" aria-label="Terug naar boven" data-i18n-aria="footer.backtotop">
     <i class="bi bi-arrow-up text-xl" aria-hidden="true"></i>
   </button>
 
   <!-- JavaScript - Deferred for Performance -->
+  <script defer src="./assets/js/translations.js"></script>
+  <script defer src="./assets/js/language.js"></script>
   <script defer src="./assets/js/main.js"></script>
   <script defer src="./assets/js/animations.js"></script>
   <script defer src="./assets/js/contact.js"></script>
